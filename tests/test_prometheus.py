@@ -23,12 +23,15 @@ from prom433.prometheus import METRICS
 
 MESSAGE_TEXT = open("tests/output_sample.txt", "rb").read().decode("utf8")
 
+
 def mock_popen(args, stdout):
     return MockPopenReturn(io.StringIO(MESSAGE_TEXT))
+
 
 class MockPopenReturn:
     def __init__(self, buffer):
         self.stdout = buffer
+
 
 class TestPrometheus(unittest.TestCase):
     def test_prometheus(self):
@@ -38,6 +41,6 @@ class TestPrometheus(unittest.TestCase):
         print(prom)
 
         self.assertIn(
-            "consumption{type=\"electricity\",period=\"daily\"} 7.971", prom)
+            """nexus_temperature{id="147", channel="1"} 23.100000""", prom)
         self.assertIn(
-            "consumption{type=\"gas\",period=\"daily\"} 39.452", prom)
+            """weather_temperature{id="250"} 16.000000""", prom)

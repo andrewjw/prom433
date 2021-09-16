@@ -25,41 +25,15 @@ class TestArguments(unittest.TestCase):
         os.environ = {}
 
     def test_user_environ(self):
-        os.environ["GLOWPROM_USER"] = "testuser"
-        args = get_arguments(["--passwd", "testpassword", "--topic", "topic"])
-        self.assertEqual("testuser", args.user)
-        self.assertEqual("testpassword", args.passwd)
+        os.environ["RTL_ARGS"] = "--rtlarg true"
+        args = get_arguments([])
+        self.assertEqual("--rtlarg true", args.rtl)
 
-    def test_passwd_environ(self):
-        os.environ["GLOWPROM_PASSWD"] = "testpassword"
-        args = get_arguments(["--user", "testuser", "--topic", "topic"])
-        self.assertEqual("testpassword", args.passwd)
-
-    def test_passwd_environ(self):
-        os.environ["GLOWPROM_TOPIC"] = "topic"
-        args = get_arguments(["--user", "testuser",
-                              "--passwd", "testpassword"])
-        self.assertEqual("topic", args.topic)
+    def test_rtl(self):
+        args = get_arguments(["--rtl", "--rtlarg true"])
+        self.assertEqual("--rtlarg true", args.rtl)
 
     def test_bind_without_port(self):
-        os.environ["GLOWPROM_USER"] = "testuser"
-        os.environ["GLOWPROM_PASSWD"] = "testpassword"
-        os.environ["GLOWPROM_TOPIC"] = "topic"
         args = get_arguments(["--bind", "192.168.1.2"])
         self.assertEqual("192.168.1.2", args.bind[0])
         self.assertEqual(9100, args.bind[1])
-
-    def test_no_user(self):
-        os.environ["GLOWPROM_PASSWD"] = "testpasswd"
-        os.environ["GLOWPROM_TOPIC"] = "topic"
-        self.assertRaises(InvalidArguments, get_arguments, [])
-
-    def test_no_passwd(self):
-        os.environ["GLOWPROM_USER"] = "testuser"
-        os.environ["GLOWPROM_TOPIC"] = "topic"
-        self.assertRaises(InvalidArguments, get_arguments, [])
-
-    def test_no_topic(self):
-        os.environ["GLOWPROM_USER"] = "testuser"
-        os.environ["GLOWPROM_PASSWD"] = "testpasswd"
-        self.assertRaises(InvalidArguments, get_arguments, [])

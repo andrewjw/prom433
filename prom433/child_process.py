@@ -16,6 +16,7 @@
 
 import subprocess
 
+
 def rtl433(args, callback, _popen=subprocess.Popen):
     process = _popen(["rtl_433", "-f", "json"] + args, stdout=subprocess.PIPE)
     for line in process.stdout.readlines():
