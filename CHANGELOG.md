@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.4 (2021-09-30)
+### Fix
+* Make docker_push.sh executable. ([`384ef6b`](https://github.com/andrewjw/prom433/commit/384ef6bcbb689ddc57aaaac311b1ac0829fb0006))
+
 ## v0.0.3 (2021-09-30)
 ### Fix
 * Fix copy and paste error in setup.py. ([`bf6c32b`](https://github.com/andrewjw/prom433/commit/bf6c32b297e2b1a4323caca06dd937a6b59752f0))
