@@ -16,7 +16,7 @@
 
 import setuptools
 
-from glowprom import __version__
+from prom433 import __version__
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
