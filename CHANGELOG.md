@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.0.5 (2021-09-30)
+### Fix
+* Fix tagging docker image. ([`4824509`](https://github.com/andrewjw/prom433/commit/48245091ee591facd2fcc65aa1d9c915d071624e))
+
 ## v0.0.4 (2021-09-30)
 ### Fix
 * Make docker_push.sh executable. ([`384ef6b`](https://github.com/andrewjw/prom433/commit/384ef6bcbb689ddc57aaaac311b1ac0829fb0006))
