@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.1 (2021-11-11)
+### Fix
+* Fix branch name in coveralls link. ([`2803ebe`](https://github.com/andrewjw/prom433/commit/2803ebeb1570e7ef577d84f98bf2719646655db7))
+
 ## v0.2.0 (2021-11-11)
 ### Feature
 * Add dockerfile. ([`dff1cd4`](https://github.com/andrewjw/prom433/commit/dff1cd480d5ec274b3dfb8867835ab933ec3454c))
