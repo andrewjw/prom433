@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.1.0 (2021-11-11)
+### Feature
+* Add tests for the http server. ([`ba317ae`](https://github.com/andrewjw/prom433/commit/ba317ae393f34546b9b5ccb664b287fda6367e1b))
+
 ## v0.0.5 (2021-09-30)
 ### Fix
 * Fix tagging docker image. ([`4824509`](https://github.com/andrewjw/prom433/commit/48245091ee591facd2fcc65aa1d9c915d071624e))

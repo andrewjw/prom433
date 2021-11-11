@@ -20,4 +20,4 @@ from .exceptions import InvalidArguments
 from .prometheus import prometheus, get_metrics
 from .server import serve
 
-__version__ = "0.0.5"
+__version__ = "0.1.0"
