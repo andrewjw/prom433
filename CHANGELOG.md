@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.0 (2021-11-11)
+### Feature
+* Add dockerfile. ([`dff1cd4`](https://github.com/andrewjw/prom433/commit/dff1cd480d5ec274b3dfb8867835ab933ec3454c))
+
 ## v0.1.0 (2021-11-11)
 ### Feature
 * Add tests for the http server. ([`ba317ae`](https://github.com/andrewjw/prom433/commit/ba317ae393f34546b9b5ccb664b287fda6367e1b))
