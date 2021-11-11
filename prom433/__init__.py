@@ -18,6 +18,6 @@
 from .arguments import get_arguments
 from .exceptions import InvalidArguments
 from .prometheus import prometheus, get_metrics
-from .server import serve, update_stats
+from .server import serve
 
 __version__ = "0.0.5"

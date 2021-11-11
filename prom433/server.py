@@ -17,10 +17,7 @@
 from datetime import datetime
 import http.server
 
-from .prometheus import prometheus
-
-
-STATS = None
+from .prometheus import get_metrics
 
 
 class Handler(http.server.BaseHTTPRequestHandler):
@@ -45,23 +42,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
 </html>""".encode("utf8"))
 
     def send_metrics(self):
-        if STATS is None:
-            self.send_response(404)
-            self.end_headers()
-        else:
-            self.send_response(200)
-            self.end_headers()
-            self.wfile.write(STATS.encode("utf8"))
+        self.send_response(200)
+        self.end_headers()
+        self.wfile.write(get_metrics().encode("utf8"))
 
 
 def serve(args):  # pragma: no cover
     server = http.server.HTTPServer(args.bind, Handler)
     server.serve_forever()
-
-
-def update_stats(client, userdata, msg):
-    global STATS
-    if msg is None:
-        STATS = None
-    else:
-        STATS = prometheus(msg)

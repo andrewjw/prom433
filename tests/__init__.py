@@ -16,3 +16,4 @@
 
 from .test_arguments import TestArguments
 from .test_prometheus import TestPrometheus
+from .test_server import TestServer
