@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.2 (2021-11-24)
+### Fix
+* Test commit to trigger docker build. ([`bfd3537`](https://github.com/andrewjw/prom433/commit/bfd353798af106b54f770d8b547c5c68ef88f16a))
+
 ## v0.2.1 (2021-11-11)
 ### Fix
 * Fix branch name in coveralls link. ([`2803ebe`](https://github.com/andrewjw/prom433/commit/2803ebeb1570e7ef577d84f98bf2719646655db7))
