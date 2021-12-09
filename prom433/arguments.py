@@ -20,7 +20,7 @@ import os
 parser = argparse.ArgumentParser(
     description='Listens to meter reports from Glow (glowmarkt.com) MQTT and'
     + ' exposes them as prometheus metrics')
-parser.add_argument('--rtl', type=str, nargs='?',
+parser.add_argument('--rtl', type=str, nargs='?', default="",
                     help='Arguments to pass to rtl_433')
 parser.add_argument('--bind', type=str, nargs='?', default="0.0.0.0:9100",
                     help='the ip address and port to bind to')

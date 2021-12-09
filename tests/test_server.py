@@ -61,7 +61,7 @@ class TestServer(unittest.TestCase):
         self.assertTrue("404" in handler.wfile.read().decode("utf8"))
 
     def test_metrics(self):
-        child_process.rtl433([], prometheus, _popen=mock_popen)
+        child_process.rtl433("", prometheus, _popen=mock_popen)
 
         handler = MockHandler()
         handler.path = "/metrics"

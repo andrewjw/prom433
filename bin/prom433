@@ -19,19 +19,13 @@ import threading
 import subprocess
 import sys
 
-from prom433 import get_arguments, connect, serve, update_stats
-
-def run_subprocess(args):
-    rtl = subprocess.run(f"rtl_433 {args.rtl} -F json", stdout=subprocess.PIPE)
-
-    for line in rtl.stdout:
-        update_stats(line)
+from prom433 import get_arguments, serve, rtl433, prometheus
 
 def main():
     args = get_arguments(sys.argv[1:])
 
-    threading.Thread(target=run_subprocess,
-                     args=(args, ),
+    threading.Thread(target=rtl433,
+                     args=(args.rtl, prometheus),
                      daemon=True).start()
 
     serve(args)

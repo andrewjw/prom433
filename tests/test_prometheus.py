@@ -35,7 +35,7 @@ class MockPopenReturn:
 
 class TestPrometheus(unittest.TestCase):
     def test_prometheus(self):
-        child_process.rtl433([], prometheus, _popen=mock_popen)
+        child_process.rtl433("", prometheus, _popen=mock_popen)
 
         prom = get_metrics()
         print(prom)
