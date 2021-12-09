@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.4 (2021-12-09)
+### Fix
+* Fix imports in main script. ([`6fa43c8`](https://github.com/andrewjw/prom433/commit/6fa43c88cd05a962c2a9434b061eb9c74ab6f5a1))
+
 ## v0.2.3 (2021-12-09)
 ### Fix
 * Fix build of docker container. ([`4797dde`](https://github.com/andrewjw/prom433/commit/4797dde8aedd6eb42ebbefc1ecc889467317477b))
