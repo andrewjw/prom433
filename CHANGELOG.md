@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.3 (2021-12-09)
+### Fix
+* Fix build of docker container. ([`4797dde`](https://github.com/andrewjw/prom433/commit/4797dde8aedd6eb42ebbefc1ecc889467317477b))
+
 ## v0.2.2 (2021-11-24)
 ### Fix
 * Test commit to trigger docker build. ([`bfd3537`](https://github.com/andrewjw/prom433/commit/bfd353798af106b54f770d8b547c5c68ef88f16a))
