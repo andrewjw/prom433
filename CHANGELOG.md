@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.2.5 (2022-01-03)
+### Fix
+* Use a docker image with rtl_433 installed. ([`7184aed`](https://github.com/andrewjw/prom433/commit/7184aed72c6a742727299c7818318b243471f7ef))
+
 ## v0.2.4 (2021-12-09)
 ### Fix
 * Fix imports in main script. ([`6fa43c8`](https://github.com/andrewjw/prom433/commit/6fa43c88cd05a962c2a9434b061eb9c74ab6f5a1))
