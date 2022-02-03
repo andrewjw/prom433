@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.0 (2022-02-03)
+### Feature
+* Switch to Python slim image so we can install Python packages more easily. ([`e9e652e`](https://github.com/andrewjw/prom433/commit/e9e652eff0037a29503c89d113d7a5f1d34eb4c2))
+
 ## v0.2.5 (2022-01-03)
 ### Fix
 * Use a docker image with rtl_433 installed. ([`7184aed`](https://github.com/andrewjw/prom433/commit/7184aed72c6a742727299c7818318b243471f7ef))
