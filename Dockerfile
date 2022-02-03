@@ -1,9 +1,12 @@
-FROM alpine:3.15.0
+FROM python:3.10-slim
 
 ARG VERSION
 
-RUN apk add python3 py3-pip && \
-    apk add rtl_433 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/ && \
+RUN apt-get update; \
+	apt-get install -y --no-install-recommends \
+		rtl_433 \
+	; \
+	rm -rf /var/lib/apt/lists/* && \
     pip install prom433==$VERSION
 
 ENTRYPOINT ["prom433"]
