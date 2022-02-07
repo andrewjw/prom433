@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.1 (2022-02-07)
+### Fix
+* Add universe repository. ([`f77c19c`](https://github.com/andrewjw/prom433/commit/f77c19c9367bc741323dcf643d497e3c50a328b3))
+
 ## v0.3.0 (2022-02-03)
 ### Feature
 * Switch to Python slim image so we can install Python packages more easily. ([`e9e652e`](https://github.com/andrewjw/prom433/commit/e9e652eff0037a29503c89d113d7a5f1d34eb4c2))
