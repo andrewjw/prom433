@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.2 (2022-02-08)
+### Fix
+* Add universe repo to allow us to install rtl_433. ([`ca4835e`](https://github.com/andrewjw/prom433/commit/ca4835e6a07be60799fca41253ba9c7a2af3bbce))
+
 ## v0.3.1 (2022-02-07)
 ### Fix
 * Add universe repository. ([`f77c19c`](https://github.com/andrewjw/prom433/commit/f77c19c9367bc741323dcf643d497e3c50a328b3))
