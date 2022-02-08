@@ -2,7 +2,9 @@ FROM python:3.10-slim
 
 ARG VERSION
 
-RUN add-apt-repository universe; \
+RUN apt-get update; \
+	apt install -y software-properties-common; \
+	add-apt-repository universe; \
 	apt-get update; \
 	apt-get install -y --no-install-recommends \
 		rtl_433 \
