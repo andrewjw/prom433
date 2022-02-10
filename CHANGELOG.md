@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.3 (2022-02-10)
+### Fix
+* Use correct package name for rtl-433. ([`3589181`](https://github.com/andrewjw/prom433/commit/3589181eff90d74f4f0dab18273ec99c87cfddcb))
+
 ## v0.3.2 (2022-02-08)
 ### Fix
 * Add universe repo to allow us to install rtl_433. ([`ca4835e`](https://github.com/andrewjw/prom433/commit/ca4835e6a07be60799fca41253ba9c7a2af3bbce))
