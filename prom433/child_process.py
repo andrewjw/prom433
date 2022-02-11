@@ -18,7 +18,7 @@ import subprocess
 
 
 def rtl433(args, callback, _popen=subprocess.Popen):
-    process = _popen(["rtl_433", "-f", "json"] + args.split(" "),
+    process = _popen(["rtl_433", "-F", "json"] + args.split(" "),
                      stdout=subprocess.PIPE)
     for line in process.stdout.readlines():
         if not line.startswith("{"):
