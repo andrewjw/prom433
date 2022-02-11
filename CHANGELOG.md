@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.3.4 (2022-02-11)
+### Fix
+* Use correct parameter for setting rtl_433 output to Json. ([`464dd07`](https://github.com/andrewjw/prom433/commit/464dd079d3af4b8446c2d5f5ebb60d6e9ff7e455))
+
 ## v0.3.3 (2022-02-10)
 ### Fix
 * Use correct package name for rtl-433. ([`3589181`](https://github.com/andrewjw/prom433/commit/3589181eff90d74f4f0dab18273ec99c87cfddcb))
