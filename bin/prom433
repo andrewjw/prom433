@@ -15,18 +15,21 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import threading
-import subprocess
+import paho.mqtt.client as mqtt
 import sys
 
-from prom433 import get_arguments, serve, rtl433, prometheus
+from prom433 import get_arguments, serve, prometheus
 
 def main():
     args = get_arguments(sys.argv[1:])
 
-    threading.Thread(target=rtl433,
-                     args=(args.rtl, prometheus),
-                     daemon=True).start()
+    client = mqtt.Client("prom433")
+    client.connect(args.mqtt)
+
+    client.loop_start()
+
+    client.subscribe("rtl_433/+/events")
+    client.on_message=prometheus
 
     serve(args)
 

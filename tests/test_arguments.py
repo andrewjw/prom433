@@ -25,13 +25,13 @@ class TestArguments(unittest.TestCase):
         os.environ = {}
 
     def test_user_environ(self):
-        os.environ["RTL_ARGS"] = "--rtlarg true"
+        os.environ["MQTT_HOST"] = "mqtthost"
         args = get_arguments([])
-        self.assertEqual("--rtlarg true", args.rtl)
+        self.assertEqual("mqtthost", args.mqtt)
 
-    def test_rtl(self):
-        args = get_arguments(["--rtl", "--rtlarg true"])
-        self.assertEqual("--rtlarg true", args.rtl)
+    def test_mqtt(self):
+        args = get_arguments(["--mqtt", "mqtthost"])
+        self.assertEqual("mqtthost", args.mqtt)
 
     def test_bind_without_port(self):
         args = get_arguments(["--bind", "192.168.1.2"])

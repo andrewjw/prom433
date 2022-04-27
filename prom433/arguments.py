@@ -18,18 +18,18 @@ import argparse
 import os
 
 parser = argparse.ArgumentParser(
-    description='Listens to meter reports from Glow (glowmarkt.com) MQTT and'
-    + ' exposes them as prometheus metrics')
-parser.add_argument('--rtl', type=str, nargs='?', default="",
-                    help='Arguments to pass to rtl_433')
+    description='Listens to messages from rtl_433 and exposes them '
+    + 'as prometheus metrics')
 parser.add_argument('--bind', type=str, nargs='?', default="0.0.0.0:9100",
                     help='the ip address and port to bind to')
+parser.add_argument('--mqtt', type=str, nargs='?', default="mqtt",
+                    help="the mqtt host to connect to")
 
 
 def get_arguments(args):
     args = parser.parse_args(args)
-    if "RTL_ARGS" in os.environ:
-        args.rtl = os.environ["RTL_ARGS"]
+    if "MQTT_HOST" in os.environ:
+        args.mqtt = os.environ["MQTT_HOST"]
 
     if ":" not in args.bind:
         args.bind = (args.bind, 9100)

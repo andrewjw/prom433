@@ -18,7 +18,7 @@ import io
 import os
 import unittest
 
-from prom433 import prometheus, get_metrics, child_process
+from prom433 import prometheus, get_metrics
 from prom433.prometheus import METRICS
 
 MESSAGE_TEXT = open("tests/output_sample.txt", "rb").read().decode("utf8")
@@ -35,7 +35,8 @@ class MockPopenReturn:
 
 class TestPrometheus(unittest.TestCase):
     def test_prometheus(self):
-        child_process.rtl433("", prometheus, _popen=mock_popen)
+        for line in MESSAGE_TEXT.split("\n"):
+            prometheus(line)
 
         prom = get_metrics()
         print(prom)

@@ -19,7 +19,7 @@ import json
 from datetime import datetime, timedelta
 import unittest
 
-from prom433 import prometheus, child_process
+from prom433 import prometheus
 from prom433.server import Handler
 
 MESSAGE_TEXT = open("tests/output_sample.txt", "rb").read().decode("utf8")
@@ -61,7 +61,8 @@ class TestServer(unittest.TestCase):
         self.assertTrue("404" in handler.wfile.read().decode("utf8"))
 
     def test_metrics(self):
-        child_process.rtl433("", prometheus, _popen=mock_popen)
+        for line in MESSAGE_TEXT.split("\n"):
+            prometheus(line)
 
         handler = MockHandler()
         handler.path = "/metrics"

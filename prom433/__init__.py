@@ -16,7 +16,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 from .arguments import get_arguments
-from .child_process import rtl433
 from .exceptions import InvalidArguments
 from .prometheus import prometheus, get_metrics
 from .server import serve
