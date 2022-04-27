@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.1 (2022-04-27)
+### Fix
+* Fix message handler prototype. ([`2998de3`](https://github.com/andrewjw/prom433/commit/2998de3bf25c3edbd9bdebbf4628bbca4ec152c3))
+
 ## v0.4.0 (2022-04-27)
 ### Feature
 * Switch to listening to MQTT messages rather than running rtl_433 directly. ([`1d81a6f`](https://github.com/andrewjw/prom433/commit/1d81a6fd6ad789ba0f195c0fd673b253130c6a45))
