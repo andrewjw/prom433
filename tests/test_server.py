@@ -62,7 +62,7 @@ class TestServer(unittest.TestCase):
 
     def test_metrics(self):
         for line in MESSAGE_TEXT.split("\n"):
-            prometheus(line)
+            prometheus(None, None, line)
 
         handler = MockHandler()
         handler.path = "/metrics"

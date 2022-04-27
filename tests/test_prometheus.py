@@ -36,7 +36,7 @@ class MockPopenReturn:
 class TestPrometheus(unittest.TestCase):
     def test_prometheus(self):
         for line in MESSAGE_TEXT.split("\n"):
-            prometheus(line)
+            prometheus(None, None, line)
 
         prom = get_metrics()
         print(prom)
