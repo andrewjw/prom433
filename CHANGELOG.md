@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.2 (2022-04-27)
+### Fix
+* Handle correct type for mqtt messages. ([`01d91ac`](https://github.com/andrewjw/prom433/commit/01d91ac20de8a955e2e981ced0682b2eaaef6661))
+
 ## v0.4.1 (2022-04-27)
 ### Fix
 * Fix message handler prototype. ([`2998de3`](https://github.com/andrewjw/prom433/commit/2998de3bf25c3edbd9bdebbf4628bbca4ec152c3))
