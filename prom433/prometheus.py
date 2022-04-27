@@ -72,7 +72,7 @@ METRIC_FORMATS = {
 # "channel" : 3, "battery_ok" : 0, "temperature_C" : 21.300, "humidity" : 39}
 
 
-def prometheus(client, userdata, message):
+def prometheus(message):
     payload = json.loads(message)
 
     if payload["model"] == "Fineoffset-WHx080":

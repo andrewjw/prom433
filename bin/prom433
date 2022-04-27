@@ -29,7 +29,8 @@ def main():
     client.loop_start()
 
     client.subscribe("rtl_433/+/events")
-    client.on_message=prometheus
+    client.on_message=lambda client, userdata, message: \
+                            prometheus(message.payload.decode("utf-8"))
 
     serve(args)
 
