@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v0.4.0 (2022-04-27)
+### Feature
+* Switch to listening to MQTT messages rather than running rtl_433 directly. ([`1d81a6f`](https://github.com/andrewjw/prom433/commit/1d81a6fd6ad789ba0f195c0fd673b253130c6a45))
+
 ## v0.3.4 (2022-02-11)
 ### Fix
 * Use correct parameter for setting rtl_433 output to Json. ([`464dd07`](https://github.com/andrewjw/prom433/commit/464dd079d3af4b8446c2d5f5ebb60d6e9ff7e455))
