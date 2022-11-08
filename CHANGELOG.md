@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.0 (2022-11-08)
+### Feature
+* Handle extra values about frequency and noise that are added to messages sent by rtl_433 with -M level. ([`36aa076`](https://github.com/andrewjw/prom433/commit/36aa076774b8eb35c7590f70e1ce338eb3643651))
+
 ## v1.0.0 (2022-11-08)
 ### Feature
 * Rework metrics so we can handle more types of messages, and record the last time a message was seen for a device. ([`57d68ec`](https://github.com/andrewjw/prom433/commit/57d68ec69e2c63486ea6466b043eef274e3e68ef))
