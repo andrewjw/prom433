@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v1.0.0 (2022-11-08)
+### Feature
+* Rework metrics so we can handle more types of messages, and record the last time a message was seen for a device. ([`57d68ec`](https://github.com/andrewjw/prom433/commit/57d68ec69e2c63486ea6466b043eef274e3e68ef))
+
+### Breaking
+* All metrics have been renamed.  ([`57d68ec`](https://github.com/andrewjw/prom433/commit/57d68ec69e2c63486ea6466b043eef274e3e68ef))
+
 ## v0.4.2 (2022-04-27)
 ### Fix
 * Handle correct type for mqtt messages. ([`01d91ac`](https://github.com/andrewjw/prom433/commit/01d91ac20de8a955e2e981ced0682b2eaaef6661))
