@@ -19,7 +19,7 @@ import json
 import logging
 
 METRICS = {
-    "prom433_last_messsage": {}
+    "prom433_last_message": {}
 }
 
 HELP_FORMAT = "#HELP %s %s"
@@ -69,7 +69,7 @@ METRICS_PREFIXES = {
     "prom433_wind_avg": [WIND_AVG_HELP, WIND_AVG_TYPE],
     "prom433_wind_max": [WIND_MAX_HELP, WIND_MAX_TYPE],
     "prom433_rain": [RAIN_HELP, RAIN_TYPE],
-    "prom433_last_messsage": [LAST_MESSAGE_HELP, LAST_MESSAGE_TYPE],
+    "prom433_last_message": [LAST_MESSAGE_HELP, LAST_MESSAGE_TYPE],
     "prom433_freq": [FREQ_HELP, FREQ_TYPE],
     "prom433_rssi": [RSSI_HELP, RSSI_TYPE],
     "prom433_snr": [SNR_HELP, SNR_TYPE],
@@ -128,7 +128,7 @@ def prometheus(message):
     tag_value = ", ".join(["%s=\"%s\"" % (k, payload[k])
                            for k in sorted(tags)])
 
-    METRICS["prom433_last_messsage"][tag_value] = time_value
+    METRICS["prom433_last_message"][tag_value] = time_value
     for key in data:
         metric = METRIC_NAME[key]
         if metric not in METRICS:
