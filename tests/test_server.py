@@ -69,5 +69,5 @@ class TestServer(unittest.TestCase):
         handler.do_GET()
 
         handler.wfile.seek(0)
-        self.assertTrue(
-            "weather_temperature" in handler.wfile.read().decode("utf8"))
+        self.assertIn(
+            "prom433_temperature", handler.wfile.read().decode("utf8"))

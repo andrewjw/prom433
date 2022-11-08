@@ -42,6 +42,12 @@ class TestPrometheus(unittest.TestCase):
         print(prom)
 
         self.assertIn(
-            """nexus_temperature{id="147", channel="1"} 23.100000""", prom)
+            """prom433_temperature{channel="1", id="147\"""" +
+            """, model="Nexus-TH"} 23.100000""", prom)
         self.assertIn(
-            """weather_temperature{id="250"} 16.000000""", prom)
+            """prom433_temperature{id="250", """ +
+            """model="Fineoffset-WHx080"} 16.000000""",
+            prom)
+        self.assertIn(
+            """prom433_temperature{channel="2", id="1940", """ +
+            """model="Eurochron-EFTH800"} 22.300000""", prom)

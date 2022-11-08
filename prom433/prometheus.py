@@ -14,54 +14,63 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+from datetime import datetime
 import json
 import logging
 
-METRICS = {}
-
-WEATHER_METRIC = "%s{id=\"%i\"} %f"
-
-WEATHER_TEMP_HELP = \
-    "# HELP weather_temperature The temperature in degrees celcius."
-WEATHER_TEMP_TYPE = "# TYPE weather_temperature gauge"
-
-WEATHER_HUM_HELP = "# HELP weather_humidity The humidity in %."
-WEATHER_HUM_TYPE = "# TYPE weather_humidity gauge"
-
-WEATHER_WIND_AVG_HELP = \
-    "# HELP weather_wind_avg The average windspeed in km/h."
-WEATHER_WIND_AVG_TYPE = "# TYPE weather_wind_avg gauge"
-WEATHER_WIND_MAX_HELP = \
-    "# HELP weather_wind_max The maximum windspeed in km/h."
-WEATHER_WIND_MAX_TYPE = "# TYPE weather_wind_max gauge"
-WEATHER_WIND_DIR_HELP = \
-    "# HELP weather_wind_dir The wind direction in degrees."
-WEATHER_WIND_DIR_TYPE = "# TYPE weather_wind_dir gauge"
-
-WEATHER_RAIN_HELP = "# HELP weather_rain The total rainfall in mm."
-WEATHER_RAIN_TYPE = "# TYPE weather_rain counter"
-
-WEATHER_BATTERY_HELP = "# HELP weather_rain The battery status."
-WEATHER_BATTERY_TYPE = "# TYPE weather_battery gauge"
-
-NEXUS_METRIC = "%s{id=\"%i\", channel=\"%i\"} %f"
-
-NEXUS_TEMP_HELP = \
-    "# HELP nexus_temperature The temperature in degrees celcius."
-NEXUS_TEMP_TYPE = "# TYPE nexus_temperature gauge"
-NEXUS_HUM_HELP = "# HELP nexus_humidity The humidity in %."
-NEXUS_HUM_TYPE = "# TYPE nexus_humidity gauge"
-NEXUS_BATTERY_HELP = "# HELP nexus_battery The battery status."
-NEXUS_BATTERY_TYPE = "# TYPE nexus_battery gauge"
-
-METRICS_PREFIXES = {
-    "weather_temperature": [WEATHER_TEMP_HELP, WEATHER_TEMP_TYPE],
-    "nexus_temperature": [NEXUS_TEMP_HELP, NEXUS_TEMP_TYPE],
+METRICS = {
+    "prom433_last_messsage": {}
 }
 
-METRIC_FORMATS = {
-    "weather_temperature": WEATHER_METRIC,
-    "nexus_temperature": NEXUS_METRIC
+HELP_FORMAT = "#HELP %s %s"
+TYPE_FORMAT = "#TYPE %s %s "
+METRIC_FORMAT = "%s{%s} %f"
+
+TEMP_HELP = \
+    "The temperature in degrees celcius."
+TEMP_TYPE = "gauge"
+
+HUMIDITY_HELP = "The humidity in %."
+HUMIDITY_TYPE = "gauge"
+
+WIND_AVG_HELP = "The average windspeed in km/h."
+WIND_AVG_TYPE = "gauge"
+WIND_MAX_HELP = "The maximum windspeed in km/h."
+WIND_MAX_TYPE = "gauge"
+WIND_DIR_HELP = "The wind direction in degrees."
+WIND_DIR_TYPE = "gauge"
+
+RAIN_HELP = "The total rainfall in mm."
+RAIN_TYPE = "counter"
+
+BATTERY_HELP = "The battery status."
+BATTERY_TYPE = "gauge"
+
+LAST_MESSAGE_HELP = "The time the last message was received."
+LAST_MESSAGE_TYPE = "counter"
+
+METRICS_PREFIXES = {
+    "prom433_battery_ok": [BATTERY_HELP, BATTERY_TYPE],
+    "prom433_temperature": [TEMP_HELP, TEMP_TYPE],
+    "prom433_humidity": [HUMIDITY_HELP, HUMIDITY_TYPE],
+    "prom433_wind_dir_deg": [WIND_DIR_HELP, WIND_DIR_TYPE],
+    "prom433_wind_avg": [WIND_AVG_HELP, WIND_AVG_TYPE],
+    "prom433_wind_max": [WIND_MAX_HELP, WIND_MAX_TYPE],
+    "prom433_rain": [RAIN_HELP, RAIN_TYPE],
+    "prom433_last_messsage": [LAST_MESSAGE_HELP, LAST_MESSAGE_TYPE]
+}
+
+TAG_KEYS = {"id", "channel", "model"}
+
+METRIC_NAME = {
+    "battery_ok": "prom433_battery_ok",
+    "temperature_C": "prom433_temperature",
+    "humidity": "prom433_humidity",
+    "wind_dir_deg": "prom433_wind_dir_deg",
+    "wind_avg_km_h": "prom433_wind_avg",
+    "wind_max_km_h": "prom433_wind_max",
+    "rain_mm": "prom433_rain",
+    "last_message": "prom433_last_message"
 }
 
 # {"time" : "2021-05-08 15:27:58", "model" : "Fineoffset-WHx080",
@@ -75,31 +84,41 @@ METRIC_FORMATS = {
 def prometheus(message):
     payload = json.loads(message)
 
-    if payload["model"] == "Fineoffset-WHx080":
-        weather(payload)
-    elif payload["model"] == "Nexus-TH":
-        nexus(payload)
-    else:
-        model = payload["model"]
-        logging.warn(f"Unknown message model {model}")
+    tags, data, unknown = {}, {}, {}
+
+    for key, value in payload.items():
+        if key == "time":
+            time_value = datetime.strptime(payload[key], "%Y-%m-%d %H:%M:%S") \
+                        .timestamp()
+        elif key in TAG_KEYS:
+            tags[key] = value
+        elif key in METRIC_NAME:
+            data[key] = value
+        else:
+            unknown[key] = value
+
+    tag_value = ", ".join(["%s=\"%s\"" % (k, payload[k])
+                           for k in sorted(tags)])
+
+    METRICS["prom433_last_messsage"][tag_value] = time_value
+    for key in data:
+        metric = METRIC_NAME[key]
+        if metric not in METRICS:
+            METRICS[metric] = {}
+        METRICS[metric][tag_value] = payload[key]
+
+    if len(unknown) > 0:
+        logging.warn(f"Message has unknown tags ({unknown}): {message}")
 
 
 def get_metrics():
     lines = []
-    for metric_name in sorted(set([m[0] for m in METRICS])):
-        lines.extend(METRICS_PREFIXES[metric_name])
-        for metric_key, value in METRICS.items():
-            if metric_key[0] == metric_name:
-                lines.append(METRIC_FORMATS[metric_name]
-                             % (metric_key + (value, )))
+    for metric_name in sorted(METRICS.keys()):
+        lines.append(HELP_FORMAT
+                     % (metric_name, METRICS_PREFIXES[metric_name][0]))
+        lines.append(TYPE_FORMAT
+                     % (metric_name, METRICS_PREFIXES[metric_name][1]))
+        for (tags, values) in METRICS[metric_name].items():
+            lines.append(METRIC_FORMAT % (metric_name, tags, values))
 
     return "\n".join(lines)
-
-
-def weather(payload):
-    METRICS[("weather_temperature", payload["id"])] = payload["temperature_C"]
-
-
-def nexus(payload):
-    METRICS[("nexus_temperature", payload["id"], payload["channel"])] = \
-        payload["temperature_C"]

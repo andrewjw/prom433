@@ -20,17 +20,23 @@ import sys
 
 from prom433 import get_arguments, serve, prometheus
 
+def on_connect(client, userdata, flags, rc):
+    print("Connected with result code "+str(rc))
+
+    client.subscribe("rtl_433/+/events")
+
 def main():
     args = get_arguments(sys.argv[1:])
 
-    client = mqtt.Client("prom433")
+    client = mqtt.Client()
+
+    client.on_connect = on_connect
+    client.on_message=lambda client, userdata, message: \
+                            prometheus(message.payload.decode("utf-8"))
+
     client.connect(args.mqtt)
 
     client.loop_start()
-
-    client.subscribe("rtl_433/+/events")
-    client.on_message=lambda client, userdata, message: \
-                            prometheus(message.payload.decode("utf-8"))
 
     serve(args)
 
