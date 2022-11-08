@@ -51,3 +51,6 @@ class TestPrometheus(unittest.TestCase):
         self.assertIn(
             """prom433_temperature{channel="2", id="1940", """ +
             """model="Eurochron-EFTH800"} 22.300000""", prom)
+        self.assertIn(
+            """prom433_noise{channel="6", id="3672", """ +
+            """model="Eurochron-EFTH800"} -20.3544""", prom)
