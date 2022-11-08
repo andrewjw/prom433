@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.1 (2022-11-08)
+### Fix
+* Don't warn on tag values we known we should ignore. ([`b6f7c77`](https://github.com/andrewjw/prom433/commit/b6f7c77acae7b3ce924d854134ef395ce1b9de8f))
+
 ## v1.1.0 (2022-11-08)
 ### Feature
 * Handle extra values about frequency and noise that are added to messages sent by rtl_433 with -M level. ([`36aa076`](https://github.com/andrewjw/prom433/commit/36aa076774b8eb35c7590f70e1ce338eb3643651))
