@@ -78,6 +78,11 @@ METRICS_PREFIXES = {
 
 TAG_KEYS = {"id", "channel", "model"}
 
+IGNORE_TAGS = {
+    "*": {"mic", "mod"},
+    "Fineoffset-WHx080": {"subtype"}
+}
+
 METRIC_NAME = {
     "battery_ok": "prom433_battery_ok",
     "temperature_C": "prom433_temperature",
@@ -129,6 +134,9 @@ def prometheus(message):
         if metric not in METRICS:
             METRICS[metric] = {}
         METRICS[metric][tag_value] = payload[key]
+
+    unknown = {key: value for (key, value) in unknown.items() if key not in
+               (IGNORE_TAGS["*"] | IGNORE_TAGS.get(tags["model"], set()))}
 
     if len(unknown) > 0:
         logging.warn(f"Message has unknown tags ({unknown}): {message}")
