@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.2 (2022-11-08)
+### Fix
+* Fix typo in last message metric name. ([`f6d5288`](https://github.com/andrewjw/prom433/commit/f6d52886cce06c2d4a4d7f22e6edca4d081b14c8))
+
 ## v1.1.1 (2022-11-08)
 ### Fix
 * Don't warn on tag values we known we should ignore. ([`b6f7c77`](https://github.com/andrewjw/prom433/commit/b6f7c77acae7b3ce924d854134ef395ce1b9de8f))
