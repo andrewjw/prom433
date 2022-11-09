@@ -16,6 +16,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import paho.mqtt.client as mqtt
+import traceback
 import sys
 
 from prom433 import get_arguments, serve, prometheus
@@ -25,14 +26,28 @@ def on_connect(client, userdata, flags, rc):
 
     client.subscribe("rtl_433/+/events")
 
+
+def safe_on_message(on_message):
+    def safe_on_message(client, userdata, msg):
+        try:
+            return on_message(client, userdata, msg)
+        except Exception as e:
+            sys.stderr.write(f"Exception processing message: {msg}\n")
+
+            traceback.print_exc()
+
+    return safe_on_message
+
+
 def main():
     args = get_arguments(sys.argv[1:])
 
     client = mqtt.Client()
 
     client.on_connect = on_connect
-    client.on_message=lambda client, userdata, message: \
-                            prometheus(message.payload.decode("utf-8"))
+    client.on_message = \
+        safe_on_message(lambda client, userdata, message: \
+                        prometheus(message.payload.decode("utf-8")))
 
     client.connect(args.mqtt)
 
