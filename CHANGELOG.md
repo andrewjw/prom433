@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.4 (2022-11-09)
+### Fix
+* Since we switched to mqtt there is no need to install rtl_433 in our Docker image. ([`5f2c147`](https://github.com/andrewjw/prom433/commit/5f2c147008b049e8bb6a0400b1f36c1725e6640d))
+
 ## v1.1.3 (2022-11-09)
 ### Fix
 * Handle exceptions when processing messages and keep running. ([`a3295fe`](https://github.com/andrewjw/prom433/commit/a3295fe25b78286c752e7525195e537b9d07bbfc))
