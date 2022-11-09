@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v1.1.3 (2022-11-09)
+### Fix
+* Handle exceptions when processing messages and keep running. ([`a3295fe`](https://github.com/andrewjw/prom433/commit/a3295fe25b78286c752e7525195e537b9d07bbfc))
+
 ## v1.1.2 (2022-11-08)
 ### Fix
 * Fix typo in last message metric name. ([`f6d5288`](https://github.com/andrewjw/prom433/commit/f6d52886cce06c2d4a4d7f22e6edca4d081b14c8))
