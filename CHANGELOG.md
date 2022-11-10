@@ -2,6 +2,13 @@
 
 <!--next-version-placeholder-->
 
+## v2.0.0 (2022-11-10)
+### Feature
+* Drop metrics after a configurable timeout (default 1 hour), so we don't continually report devices we've only seen once. ([`1197e2d`](https://github.com/andrewjw/prom433/commit/1197e2d1018264c938ca6e3756e459cdb11fa970))
+
+### Breaking
+* Metrics will be dropped after 1 hour if not updated. Add --drop-after 0 to keep the old behaviour.  ([`1197e2d`](https://github.com/andrewjw/prom433/commit/1197e2d1018264c938ca6e3756e459cdb11fa970))
+
 ## v1.1.4 (2022-11-09)
 ### Fix
 * Since we switched to mqtt there is no need to install rtl_433 in our Docker image. ([`5f2c147`](https://github.com/andrewjw/prom433/commit/5f2c147008b049e8bb6a0400b1f36c1725e6640d))
