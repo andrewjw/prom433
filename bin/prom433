@@ -47,7 +47,8 @@ def main():
     client.on_connect = on_connect
     client.on_message = \
         safe_on_message(lambda client, userdata, message: \
-                        prometheus(message.payload.decode("utf-8")))
+                        prometheus(message.payload.decode("utf-8"),
+                                   args.drop_after))
 
     client.connect(args.mqtt)
 

@@ -109,7 +109,7 @@ METRIC_NAME = {
 # "mod":"ASK","freq":433.91904,"rssi":-0.117409,"snr":20.23702,"noise":-20.3544}
 
 
-def prometheus(message):
+def prometheus(message, drop_after):
     payload = json.loads(message)
 
     tags, data, unknown = {}, {}, {}
@@ -140,6 +140,25 @@ def prometheus(message):
 
     if len(unknown) > 0:
         logging.warn(f"Message has unknown tags ({unknown}): {message}")
+
+    if drop_after > 0:
+        tags_to_drop = set()
+
+        for tag_value in METRICS["prom433_last_message"].keys():
+            limit = time_value - drop_after
+            if METRICS["prom433_last_message"][tag_value] < limit:
+                tags_to_drop.add(tag_value)
+
+        if len(tags_to_drop) == 0:
+            return
+
+        logging.info(f"Dropping {len(tags_to_drop)} as not seen"
+                     + " for {drop_after} seconds")
+        for tag_value in tags_to_drop:
+            logging.info(f"Dropping {tag_value}")
+            for metric in METRICS.keys():
+                if tag_value in METRICS[metric]:
+                    del METRICS[metric][tag_value]
 
 
 def get_metrics():

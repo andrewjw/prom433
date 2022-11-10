@@ -22,6 +22,7 @@ from prom433 import prometheus, get_metrics
 from prom433.prometheus import METRICS
 
 MESSAGE_TEXT = open("tests/output_sample.txt", "rb").read().decode("utf8")
+DROP_TEXT = open("tests/dropmetric_sample.txt", "rb").read().decode("utf8")
 
 
 def mock_popen(args, stdout):
@@ -36,10 +37,9 @@ class MockPopenReturn:
 class TestPrometheus(unittest.TestCase):
     def test_prometheus(self):
         for line in MESSAGE_TEXT.split("\n"):
-            prometheus(line)
+            prometheus(line, 0)
 
         prom = get_metrics()
-        print(prom)
 
         self.assertIn(
             """prom433_temperature{channel="1", id="147\"""" +
@@ -54,3 +54,30 @@ class TestPrometheus(unittest.TestCase):
         self.assertIn(
             """prom433_noise{channel="6", id="3672", """ +
             """model="Eurochron-EFTH800"} -20.3544""", prom)
+
+    def test_drop_metric_after(self):
+        for line in DROP_TEXT.split("\n"):
+            prometheus(line, 3600)
+
+        prom = get_metrics()
+
+        # The Nexus wasn't dropped because it was updated 30 minutes ago,
+        self.assertIn("""Nexus-TH""", prom)
+        # The Eurochron message was the one that triggered the delete...
+        self.assertIn("""Eurochron-EFTH800""", prom)
+        # but the Fineoffset hasn't been seen for an hour, so was dropped.
+        self.assertNotIn("""Fineoffset-WHx080""", prom)
+
+    def test_drop_metric_disabled(self):
+        for line in DROP_TEXT.split("\n"):
+            prometheus(line, 0)
+
+        prom = get_metrics()
+
+        # The Nexus wasn't dropped because it was updated 30 minutes ago,
+        self.assertIn("""Nexus-TH""", prom)
+        # The Eurochron message was the one that triggered the delete...
+        self.assertIn("""Eurochron-EFTH800""", prom)
+        # The Fineoffset hasn't been seen for an hour,
+        # but dropping is disabled.
+        self.assertIn("""Fineoffset-WHx080""", prom)

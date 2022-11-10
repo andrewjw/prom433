@@ -24,6 +24,10 @@ parser.add_argument('--bind', type=str, nargs='?', default="0.0.0.0:9100",
                     help='the ip address and port to bind to')
 parser.add_argument('--mqtt', type=str, nargs='?', default="mqtt",
                     help="the mqtt host to connect to")
+parser.add_argument('--drop-after', type=int, nargs='?', default=3600,
+                    help="drop metrics this many seconds after"
+                         + " the device was last seen."
+                         + " 0 disables dropping metrics")
 
 
 def get_arguments(args):
