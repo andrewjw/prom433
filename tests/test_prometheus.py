@@ -54,6 +54,9 @@ class TestPrometheus(unittest.TestCase):
         self.assertIn(
             """prom433_noise{channel="6", id="3672", """ +
             """model="Eurochron-EFTH800"} -20.3544""", prom)
+        self.assertIn(
+            """prom433_radio_clock{channel="2", id="1940", """ +
+            """model="Eurochron-EFTH800"} 0""", prom)
 
     def test_drop_metric_after(self):
         for line in DROP_TEXT.split("\n"):

@@ -61,6 +61,9 @@ SNR_TYPE = "guage"
 NOISE_HELP = "The noise level of the last message."
 NOISE_TYPE = "guage"
 
+RADIO_CLOCK_HELP = "The radio clock value of the last message, in unix time."
+RADIO_CLOCK_TYPE = "counter"
+
 METRICS_PREFIXES = {
     "prom433_battery_ok": [BATTERY_HELP, BATTERY_TYPE],
     "prom433_temperature": [TEMP_HELP, TEMP_TYPE],
@@ -73,7 +76,12 @@ METRICS_PREFIXES = {
     "prom433_freq": [FREQ_HELP, FREQ_TYPE],
     "prom433_rssi": [RSSI_HELP, RSSI_TYPE],
     "prom433_snr": [SNR_HELP, SNR_TYPE],
-    "prom433_noise": [NOISE_HELP, NOISE_TYPE]
+    "prom433_noise": [NOISE_HELP, NOISE_TYPE],
+    "prom433_radio_clock": [RADIO_CLOCK_HELP, RADIO_CLOCK_TYPE]
+}
+
+METRICS_CONVERT = {
+    "prom433_radio_clock": lambda x: datetime.strptime(x, "%Y-%m-%dT%H:%M:%S").timestamp()
 }
 
 TAG_KEYS = {"id", "channel", "model"}
@@ -95,7 +103,8 @@ METRIC_NAME = {
     "freq": "prom433_freq",
     "rssi": "prom433_rssi",
     "snr": "prom433_snr",
-    "noise": "prom433_noise"
+    "noise": "prom433_noise",
+    "radio_clock": "prom433_radio_clock"
 }
 
 # {"time" : "2021-05-08 15:27:58", "model" : "Fineoffset-WHx080",
@@ -133,7 +142,7 @@ def prometheus(message, drop_after):
         metric = METRIC_NAME[key]
         if metric not in METRICS:
             METRICS[metric] = {}
-        METRICS[metric][tag_value] = payload[key]
+        METRICS[metric][tag_value] = METRICS_CONVERT.get(metric, lambda x: x)(payload[key])
 
     unknown = {key: value for (key, value) in unknown.items() if key not in
                (IGNORE_TAGS["*"] | IGNORE_TAGS.get(tags["model"], set()))}
