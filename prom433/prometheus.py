@@ -81,7 +81,8 @@ METRICS_PREFIXES = {
 }
 
 METRICS_CONVERT = {
-    "prom433_radio_clock": lambda x: datetime.strptime(x, "%Y-%m-%dT%H:%M:%S").timestamp()
+    "prom433_radio_clock":
+        lambda x: datetime.strptime(x, "%Y-%m-%dT%H:%M:%S").timestamp()
 }
 
 TAG_KEYS = {"id", "channel", "model"}
@@ -142,7 +143,8 @@ def prometheus(message, drop_after):
         metric = METRIC_NAME[key]
         if metric not in METRICS:
             METRICS[metric] = {}
-        METRICS[metric][tag_value] = METRICS_CONVERT.get(metric, lambda x: x)(payload[key])
+        METRICS[metric][tag_value] = \
+            METRICS_CONVERT.get(metric, lambda x: x)(payload[key])
 
     unknown = {key: value for (key, value) in unknown.items() if key not in
                (IGNORE_TAGS["*"] | IGNORE_TAGS.get(tags["model"], set()))}
