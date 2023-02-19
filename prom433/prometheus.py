@@ -34,11 +34,20 @@ HUMIDITY_HELP = "The humidity in %."
 HUMIDITY_TYPE = "gauge"
 
 WIND_AVG_HELP = "The average windspeed in km/h."
+WIND_AVG_HELP_M = "The average windspeed in m/s."
 WIND_AVG_TYPE = "gauge"
 WIND_MAX_HELP = "The maximum windspeed in km/h."
+WIND_MAX_HELP_M = "The maximum windspeed in m/s."
 WIND_MAX_TYPE = "gauge"
 WIND_DIR_HELP = "The wind direction in degrees."
 WIND_DIR_TYPE = "gauge"
+
+UV_HELP = "UV intensity raw value."
+UV_TYPE = "gauge"
+UVI_HELP = "UV Index."
+UVI_TYPE = "gauge"
+LUX_HELP = "Light LUX in W/m^2."
+LUX_TYPE = "gauge"
 
 RAIN_HELP = "The total rainfall in mm."
 RAIN_TYPE = "counter"
@@ -68,7 +77,12 @@ METRICS_PREFIXES = {
     "prom433_wind_dir_deg": [WIND_DIR_HELP, WIND_DIR_TYPE],
     "prom433_wind_avg": [WIND_AVG_HELP, WIND_AVG_TYPE],
     "prom433_wind_max": [WIND_MAX_HELP, WIND_MAX_TYPE],
+    "prom433_wind_avg_m": [WIND_AVG_HELP_M, WIND_AVG_TYPE],
+    "prom433_wind_max_m": [WIND_MAX_HELP_M, WIND_MAX_TYPE],
     "prom433_rain": [RAIN_HELP, RAIN_TYPE],
+    "prom433_uv": [UV_HELP, UV_TYPE],
+    "prom433_uvi": [UVI_HELP, UVI_TYPE],
+    "prom433_light_lux": [LUX_HELP, LUX_TYPE],
     "prom433_last_message": [LAST_MESSAGE_HELP, LAST_MESSAGE_TYPE],
     "prom433_freq": [FREQ_HELP, FREQ_TYPE],
     "prom433_rssi": [RSSI_HELP, RSSI_TYPE],
@@ -90,7 +104,12 @@ METRIC_NAME = {
     "wind_dir_deg": "prom433_wind_dir_deg",
     "wind_avg_km_h": "prom433_wind_avg",
     "wind_max_km_h": "prom433_wind_max",
+    "wind_avg_m_s": "prom433_wind_avg_m",
+    "wind_max_m_s": "prom433_wind_max_m",
     "rain_mm": "prom433_rain",
+    "uv": "prom433_uv",
+    "uvi": "prom433_uvi",
+    "light_lux": "prom433_light_lux",
     "last_message": "prom433_last_message",
     "freq": "prom433_freq",
     "rssi": "prom433_rssi",
