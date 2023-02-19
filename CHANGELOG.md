@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v2.1.0 (2023-01-20)
+### Feature
+* Add support for radio clock values. ([`525191a`](https://github.com/andrewjw/prom433/commit/525191a1b421c70fbd2f8bb4d24cdbce2861e038))
+
 ## v2.0.0 (2022-11-10)
 ### Feature
 * Drop metrics after a configurable timeout (default 1 hour), so we don't continually report devices we've only seen once. ([`1197e2d`](https://github.com/andrewjw/prom433/commit/1197e2d1018264c938ca6e3756e459cdb11fa970))
