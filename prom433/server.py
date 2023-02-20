@@ -46,6 +46,12 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(get_metrics().encode("utf8"))
 
+    def log_message(self, format, *args):
+        return
+
+#    def log_request(self, code='-', size='-'):
+#        return
+
 
 def serve(args):  # pragma: no cover
     server = http.server.HTTPServer(args.bind, Handler)
