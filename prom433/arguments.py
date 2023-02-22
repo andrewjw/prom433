@@ -20,6 +20,8 @@ import os
 parser = argparse.ArgumentParser(
     description='Listens to messages from rtl_433 and exposes them '
     + 'as prometheus metrics')
+parser.add_argument('-q', '--quiet', action="store_true",
+                    help="don't log HTTP requests")
 parser.add_argument('--bind', type=str, nargs='?', default="0.0.0.0:9100",
                     help='the ip address and port to bind to')
 parser.add_argument('--mqtt', type=str, nargs='?', default="mqtt",

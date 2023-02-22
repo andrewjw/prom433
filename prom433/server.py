@@ -21,6 +21,12 @@ from .prometheus import get_metrics
 
 
 class Handler(http.server.BaseHTTPRequestHandler):
+    def __init__(self, quiet=False):
+        self.quiet = quiet
+
+    def __call__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
     def do_GET(self):
         if self.path == "/":
             self.send_index()
@@ -46,13 +52,15 @@ class Handler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(get_metrics().encode("utf8"))
 
-    def log_message(self, format, *args):
-        return
-
-#    def log_request(self, code='-', size='-'):
-#        return
+    def log_request(self, code='-', size='-'):
+        if self.quiet:
+            return
+        else:
+            self.log_message('"%s" %s %s',
+                             self.requestline, str(code), str(size))
 
 
 def serve(args):  # pragma: no cover
-    server = http.server.HTTPServer(args.bind, Handler)
+    handler = Handler(args.quiet)
+    server = http.server.HTTPServer(args.bind, handler)
     server.serve_forever()
