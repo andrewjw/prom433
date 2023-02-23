@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v2.1.1 (2023-02-23)
+### Fix
+* Treat all radio clocks as UTC so we return the correct time, regardless of the host's timezone (fix #11). ([`be71083`](https://github.com/andrewjw/prom433/commit/be7108383651c78f85d9d6e42f20c9e57ac74789))
+
 ## v2.1.0 (2023-01-20)
 ### Feature
 * Add support for radio clock values. ([`525191a`](https://github.com/andrewjw/prom433/commit/525191a1b421c70fbd2f8bb4d24cdbce2861e038))
