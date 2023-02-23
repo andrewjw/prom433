@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from datetime import datetime
+from datetime import datetime, timezone
 import json
 import logging
 
@@ -82,7 +82,7 @@ METRICS_PREFIXES = {
 
 METRICS_CONVERT = {
     "prom433_radio_clock":
-        lambda x: datetime.strptime(x, "%Y-%m-%dT%H:%M:%S").timestamp()
+        lambda x: datetime.strptime(x, "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc).timestamp()
 }
 
 TAG_KEYS = {"id", "channel", "model"}
