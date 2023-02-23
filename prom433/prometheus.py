@@ -82,7 +82,8 @@ METRICS_PREFIXES = {
 
 METRICS_CONVERT = {
     "prom433_radio_clock":
-        lambda x: datetime.strptime(x, "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc).timestamp()
+        lambda x: datetime.strptime(x, "%Y-%m-%dT%H:%M:%S")
+        .replace(tzinfo=timezone.utc).timestamp()
 }
 
 TAG_KEYS = {"id", "channel", "model"}
