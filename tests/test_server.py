@@ -41,6 +41,7 @@ class MockHandler(Handler):
         self.client_address = ("127.0.0.1", 8000)
         self.request_version = "1.0"
         self.command = "GET"
+        self.quiet = False
 
 
 class TestServer(unittest.TestCase):
