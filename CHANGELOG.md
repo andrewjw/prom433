@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v2.1.2 (2023-02-27)
+### Fix
+* Allow OS to choose Python version ([`bc56611`](https://github.com/andrewjw/prom433/commit/bc566119735500c546bc54aed1d4cd08a97b39cc))
+
 ## v2.1.1 (2023-02-23)
 ### Fix
 * Treat all radio clocks as UTC so we return the correct time, regardless of the host's timezone (fix #11). ([`be71083`](https://github.com/andrewjw/prom433/commit/be7108383651c78f85d9d6e42f20c9e57ac74789))
