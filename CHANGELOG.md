@@ -2,6 +2,11 @@
 
 <!--next-version-placeholder-->
 
+## v2.2.0 (2023-02-28)
+### Feature
+* Add metrics ([`f804439`](https://github.com/andrewjw/prom433/commit/f804439ce30dfbbcde4726a1aa78398ff1454fcf))
+* Add --quiet to suppress server logging ([`9770f43`](https://github.com/andrewjw/prom433/commit/9770f433f2e2bb2825aabceaefc2b73660e99234))
+
 ## v2.1.2 (2023-02-27)
 ### Fix
 * Allow OS to choose Python version ([`bc56611`](https://github.com/andrewjw/prom433/commit/bc566119735500c546bc54aed1d4cd08a97b39cc))
