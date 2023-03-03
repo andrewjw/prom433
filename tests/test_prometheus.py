@@ -23,6 +23,7 @@ from prom433.prometheus import METRICS
 
 MESSAGE_TEXT = open("tests/output_sample.txt", "rb").read().decode("utf8")
 DROP_TEXT = open("tests/dropmetric_sample.txt", "rb").read().decode("utf8")
+TIMESTAMP_TEXT = open("tests/timestamp_sample.txt", "rb").read().decode("utf8")
 
 
 def mock_popen(args, stdout):
@@ -84,3 +85,42 @@ class TestPrometheus(unittest.TestCase):
         # The Fineoffset hasn't been seen for an hour,
         # but dropping is disabled.
         self.assertIn("""Fineoffset-WHx080""", prom)
+
+    def test_timestamp(self):
+        for line in TIMESTAMP_TEXT.split("\n"):
+            prometheus(line, 0)
+
+        prom = get_metrics()
+
+        #report_meta time:utc:tz
+        self.assertIn(
+            """prom433_last_message{id="1", """ +
+            """model="LaCrosse-TX"} 1677374905.000000""", prom)
+        #report_meta time:tz
+        self.assertIn(
+            """prom433_last_message{id="2", """ +
+            """model="LaCrosse-TX"} 1677374905.000000""", prom)
+        #report_meta time:iso:tz
+        self.assertIn(
+            """prom433_last_message{id="3", """ +
+            """model="LaCrosse-TX"} 1677374905.000000""", prom)
+        #report_meta time:unix
+        self.assertIn(
+            """prom433_last_message{id="4", """ +
+            """model="LaCrosse-TX"} 1677374905.000000""", prom)
+        #report_meta time:utc:tz:usec
+        self.assertIn(
+            """prom433_last_message{id="101", """ +
+            """model="LaCrosse-TX31UIT"} 1677374905.538138""", prom)
+        #report_meta time:tz:usec
+        self.assertIn(
+            """prom433_last_message{id="102", """ +
+            """model="LaCrosse-TX31UIT"} 1677374905.538138""", prom)
+        #report_meta time:iso:tz:usec
+        self.assertIn(
+            """prom433_last_message{id="103", """ +
+            """model="LaCrosse-TX31UIT"} 1677374905.538138""", prom)
+        #report_meta time:unix:usec
+        self.assertIn(
+            """prom433_last_message{id="104", """ +
+            """model="LaCrosse-TX31UIT"} 1677374905.538138""", prom)
