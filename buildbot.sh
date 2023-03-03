@@ -2,7 +2,7 @@
 
 set -e
 
-pip3.8 install -r requirements.txt
+pip3 install -r requirements.txt
 
 COVERAGE=coverage-3.8 ./run_tests.sh
 
