@@ -2,23 +2,48 @@
 
 set -e
 
+python3.8 -m venv venv-3.8
+
+. venv-3.8/bin/active
+
+pip3 install -r requirements.txt
+./run_tests.sh
+./code_style.sh
+
+deactivate
+
+python3.9 -m venv venv-3.9
+
+. venv-3.9/bin/active
+
 pip3 install -r requirements.txt
 
-COVERAGE=coverage-3.8 ./run_tests.sh
-
-pip3.9 install -r requirements.txt
-
-COVERAGE=coverage-3.9 ./run_tests.sh
-
-pip3.10 install -r requirements.txt
-
-COVERAGE=coverage-3.10 ./run_tests.sh
-
-pip3.11 install -r requirements.txt
-
-COVERAGE=coverage-3.11 ./run_tests.sh
-
+./run_tests.sh
 ./code_style.sh
+
+deactivate
+
+python3.10 -m venv venv-3.10
+
+. venv-3.10/bin/active
+
+pip3 install -r requirements.txt
+
+./run_tests.sh
+./code_style.sh
+
+deactivate
+
+python3.11 -m venv venv-3.11
+
+. venv-3.11/bin/active
+
+pip3 install -r requirements.txt
+
+./run_tests.sh
+./code_style.sh
+
+deactivate
 
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 echo "Building branch $BRANCH"
