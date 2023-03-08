@@ -43,8 +43,6 @@ pip3 install -r requirements.txt
 ./run_tests.sh
 ./code_style.sh
 
-deactivate
-
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 echo "Building branch $BRANCH"
 if [[ "$BRANCH" == "main" ]]; then
