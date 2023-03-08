@@ -100,7 +100,8 @@ METRICS_PREFIXES = {
 METRICS_CONVERT = {
     "prom433_radio_clock":
         lambda x: dateutil.utils.default_tzinfo(dateutil.parser.parse(x),
-        dateutil.tz.tzoffset("UTC", 0)).timestamp()
+                                                dateutil.tz.tzoffset("UTC", 0))
+        .timestamp()
 }
 
 TAG_KEYS = {"id", "channel", "model"}
@@ -152,7 +153,8 @@ def prometheus(message, drop_after):
             if ':' in payload[key]:
                 time_value = dateutil.parser.parse(payload[key]).timestamp()
             else:
-                time_value = datetime.fromtimestamp(float(payload[key])).timestamp()
+                time_value = datetime.fromtimestamp(float(payload[key])) \
+                             .timestamp()
         elif key in TAG_KEYS:
             tags[key] = value
         elif key in METRIC_NAME:

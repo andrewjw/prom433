@@ -92,35 +92,35 @@ class TestPrometheus(unittest.TestCase):
 
         prom = get_metrics()
 
-        #report_meta time:utc:tz
+        # Test for time in format time:utc:tz
         self.assertIn(
             """prom433_last_message{id="1", """ +
             """model="LaCrosse-TX"} 1677374905.000000""", prom)
-        #report_meta time:tz
+        # Test for time in format time:tz
         self.assertIn(
             """prom433_last_message{id="2", """ +
             """model="LaCrosse-TX"} 1677374905.000000""", prom)
-        #report_meta time:iso:tz
+        # Test for time in format time:iso:tz
         self.assertIn(
             """prom433_last_message{id="3", """ +
             """model="LaCrosse-TX"} 1677374905.000000""", prom)
-        #report_meta time:unix
+        # Test for time in format time:unix
         self.assertIn(
             """prom433_last_message{id="4", """ +
             """model="LaCrosse-TX"} 1677374905.000000""", prom)
-        #report_meta time:utc:tz:usec
+        # Test for time in format time:utc:tz:usec
         self.assertIn(
             """prom433_last_message{id="101", """ +
             """model="LaCrosse-TX31UIT"} 1677374905.538138""", prom)
-        #report_meta time:tz:usec
+        # Test for time in format time:tz:usec
         self.assertIn(
             """prom433_last_message{id="102", """ +
             """model="LaCrosse-TX31UIT"} 1677374905.538138""", prom)
-        #report_meta time:iso:tz:usec
+        # Test for time in format time:iso:tz:usec
         self.assertIn(
             """prom433_last_message{id="103", """ +
             """model="LaCrosse-TX31UIT"} 1677374905.538138""", prom)
-        #report_meta time:unix:usec
+        # Test for time in format time:unix:usec
         self.assertIn(
             """prom433_last_message{id="104", """ +
             """model="LaCrosse-TX31UIT"} 1677374905.538138""", prom)
