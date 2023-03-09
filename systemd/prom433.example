@@ -1,0 +1,3 @@
+QUIET="--quiet"
+MQTT_HOST="localhost"
+BIND_HOST_PORT="localhost:9100"

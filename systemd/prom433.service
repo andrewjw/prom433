@@ -1,0 +1,54 @@
+[Unit]
+Description=Prom433 - Publish Prometheus metrics from rtl_433 SDR receiver
+Documentation=https://github.com/andrewjw/prom433
+# Replace with different MQTT broker as needed
+After=mosquitto.service
+
+[Service]
+# useradd -r -g prom433 -s /sbin/nologin -c "prom433 user" prom433
+User=prom433
+# groupadd -r prom433
+Group=prom433
+
+# Set defaults. Overwritten by /etc/sysconfig file if present
+Environment=QUIET=""
+Environment=MQTT_HOST="localhost"
+Environment=BIND_HOST_PORT="localhost:9100"
+Environment=DROP_AFTER=0
+EnvironmentFile=-/etc/sysconfig/prom433
+
+Type=simple
+Restart=on-failure
+TimeoutStopSec=10
+ExecStart=/usr/local/bin/prom433 $QUIET --mqtt ${MQTT_HOST} --bind ${BIND_HOST_PORT} --drop-after ${DROP_AFTER}
+
+# Security sandbox features
+CapabilityBoundingSet=CAP_NET_BIND_SERVICE CAP_DAC_READ_SEARCH
+LimitNOFILE=1000
+LockPersonality=true
+MemoryDenyWriteExecute=true
+NoNewPrivileges=true
+PrivateDevices=true
+PrivateTmp=true
+ProtectClock=true
+ProtectControlGroups=true
+ProtectHome=true
+ProtectHostname=true
+ProtectKernelLogs=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+ProtectProc=invisible
+ProtectSystem=strict
+RemoveIPC=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+RestrictNamespaces=true
+RestrictRealtime=true
+RestrictSUIDSGID=true
+UMask=0077
+
+# Modify as needed if service not on localhost
+IPAddressDeny=any
+IPAddressAllow=localhost
+
+[Install]
+WantedBy=multi-user.target
