@@ -14,14 +14,17 @@ and signal strength details to the messages received. These will be exposed as
 additional metrics.
 
 ```
-usage: prom433 [-h] [--bind [BIND]] [--mqtt [MQTT]]
+usage: prom433 [-h] [-q] [--bind [BIND]] [--mqtt [MQTT]] [--drop-after [DROP_AFTER]]
 
 Listens to messages from rtl_433 and exposes them as prometheus metrics
 
 options:
-  -h, --help     show this help message and exit
-  --bind [BIND]  the ip address and port to bind to
-  --mqtt [MQTT]  the mqtt host to connect to
+  -h, --help            show this help message and exit
+  -q, --quiet           don't log HTTP requests
+  --bind [BIND]         the ip address and port to bind to
+  --mqtt [MQTT]         the mqtt host to connect to
+  --drop-after [DROP_AFTER]
+                        drop metrics this many seconds after the device was last seen. 0 disables dropping metrics
 ```
 
 What metrics are exposed depends on what devices are detected by `rtl_433`. Below
