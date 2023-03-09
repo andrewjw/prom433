@@ -1,0 +1,8 @@
+{"time" : "2023-02-26 01:28:25Z", "model" : "LaCrosse-TX", "id" : 1, "temperature_C" : 4.000, "mic" : "PARITY"}
+{"time" : "2023-02-25 17:28:25-0800", "model" : "LaCrosse-TX", "id" : 2, "temperature_C" : 4.000, "mic" : "PARITY"}
+{"time" : "2023-02-25T17:28:25-0800", "model" : "LaCrosse-TX", "id" : 3, "temperature_C" : 4.000, "mic" : "PARITY"}
+{"time" : "1677374905", "model" : "LaCrosse-TX", "id" : 4, "temperature_C" : 4.000, "mic" : "PARITY"}
+{"time" : "2023-02-26 01:28:25.538138Z", "model" : "LaCrosse-TX31UIT", "id" : 101, "temperature_C" : 4.000, "mic" : "PARITY"}
+{"time" : "2023-02-25 17:28:25.538138-0800", "model" : "LaCrosse-TX31UIT", "id" : 102, "temperature_C" : 4.000, "mic" : "PARITY"}
+{"time" : "2023-02-25T17:28:25.538138-0800", "model" : "LaCrosse-TX31UIT", "id" : 103, "temperature_C" : 4.000, "mic" : "PARITY"}
+{"time" : "1677374905.538138", "model" : "LaCrosse-TX31UIT", "id" : 104, "temperature_C" : 4.000, "mic" : "PARITY"}
