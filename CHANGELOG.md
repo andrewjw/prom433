@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v2.3.0 (2023-03-09)
+### Feature
+* Add time parser ([#17](https://github.com/andrewjw/prom433/issues/17)) ([`023ee63`](https://github.com/andrewjw/prom433/commit/023ee63ee986c87d6e9a00a493cd7b98101d4cca))
+
 ## v2.2.0 (2023-02-28)
 ### Feature
 * Add metrics ([`f804439`](https://github.com/andrewjw/prom433/commit/f804439ce30dfbbcde4726a1aa78398ff1454fcf))
