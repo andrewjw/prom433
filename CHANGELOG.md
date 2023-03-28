@@ -2,6 +2,10 @@
 
 <!--next-version-placeholder-->
 
+## v2.3.1 (2023-03-28)
+### Fix
+* Make error clearer when failing to connect to MQTT server. ([#21](https://github.com/andrewjw/prom433/issues/21)) ([`cc923b3`](https://github.com/andrewjw/prom433/commit/cc923b33dcb941be40e46ff32471a730d8ae0387))
+
 ## v2.3.0 (2023-03-09)
 ### Feature
 * Add time parser ([#17](https://github.com/andrewjw/prom433/issues/17)) ([`023ee63`](https://github.com/andrewjw/prom433/commit/023ee63ee986c87d6e9a00a493cd7b98101d4cca))
