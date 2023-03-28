@@ -17,6 +17,7 @@
 
 import paho.mqtt.client as mqtt
 import traceback
+import socket
 import sys
 
 from prom433 import get_arguments, serve, prometheus
@@ -50,7 +51,11 @@ def main():
                         prometheus(message.payload.decode("utf-8"),
                                    args.drop_after))
 
-    client.connect(args.mqtt)
+    try:
+        client.connect(args.mqtt)
+    except socket.gaierror as e:
+        sys.stderr.write(f"Error connecting to mqtt server '{args.mqtt}': {e}\n")
+        sys.exit(1)
 
     client.loop_start()
 
