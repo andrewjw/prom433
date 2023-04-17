@@ -23,9 +23,9 @@ parser = argparse.ArgumentParser(
 parser.add_argument('-q', '--quiet', action="store_true",
                     help="don't log HTTP requests")
 parser.add_argument('--bind', type=str, nargs='?', default="0.0.0.0:9100",
-                    help='the ip address and port to bind to')
+                    help='the ip address and port to bind to. Default: *:9100')
 parser.add_argument('--mqtt', type=str, nargs='?', default="mqtt",
-                    help="the mqtt host to connect to")
+                    help="the mqtt host to connect to. Default: mqtt:1883")
 parser.add_argument('--drop-after', type=int, nargs='?', default=3600,
                     help="drop metrics this many seconds after"
                          + " the device was last seen."

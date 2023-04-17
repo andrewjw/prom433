@@ -17,6 +17,7 @@
 
 import paho.mqtt.client as mqtt
 import traceback
+from typing import Tuple
 import socket
 import sys
 
@@ -40,6 +41,17 @@ def safe_on_message(on_message):
     return safe_on_message
 
 
+def parse_mqtt_url(url: str) -> Tuple[str, int]:
+    if "://" in url:
+        scheme, url = url.split("://")
+        if scheme.lower() != "mqtt":
+            sys.stderr.write("If present, the scheme for the MQTT connnection must be mqtt.\n")
+            sys.exit(1)
+
+    if ":" in url:
+        return url.split(":")[0], int(url.split(":")[1])
+    return url, 1883
+
 def main():
     args = get_arguments(sys.argv[1:])
 
@@ -51,8 +63,9 @@ def main():
                         prometheus(message.payload.decode("utf-8"),
                                    args.drop_after))
 
+    host, port = parse_mqtt_url(args.mqtt)
     try:
-        client.connect(args.mqtt)
+        client.connect(host=host, port=port)
     except socket.gaierror as e:
         sys.stderr.write(f"Error connecting to mqtt server '{args.mqtt}': {e}\n")
         sys.exit(1)
