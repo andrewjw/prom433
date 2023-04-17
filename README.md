@@ -28,6 +28,16 @@ options:
                         dropping metrics
 ```
 
+By default the metrics are exposed on port 9100 (configure using `--bind`). To
+scrape the metrics with Prometheus, add the following to your `promethus.cfg` file.
+
+```
+scrape_configs:
+  - job_name: 'prom433'
+    static_configs:
+      - targets: ['hostname:9100']
+```
+
 What metrics are exposed depends on what devices are detected by `rtl_433`. Below
 is an example of the metrics that could be exposed. If you have other devices, 
 please free to raise an issue so we can add more supported device types.
