@@ -1,3 +1,4 @@
 QUIET="--quiet"
-MQTT_HOST="localhost"
+MQTT_HOST_PORT="localhost:1883"
 BIND_HOST_PORT="localhost:9100"
+DROP_AFTER="0"
