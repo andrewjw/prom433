@@ -12,7 +12,7 @@ Group=prom433
 
 # Set defaults. Overwritten by /etc/sysconfig file if present
 Environment=QUIET=""
-Environment=MQTT_HOST="localhost"
+Environment=MQTT_HOST_PORT="localhost:1883"
 Environment=BIND_HOST_PORT="localhost:9100"
 Environment=DROP_AFTER=0
 EnvironmentFile=-/etc/sysconfig/prom433
@@ -20,7 +20,7 @@ EnvironmentFile=-/etc/sysconfig/prom433
 Type=simple
 Restart=on-failure
 TimeoutStopSec=10
-ExecStart=/usr/local/bin/prom433 $QUIET --mqtt ${MQTT_HOST} --bind ${BIND_HOST_PORT} --drop-after ${DROP_AFTER}
+ExecStart=/usr/local/bin/prom433 $QUIET --mqtt ${MQTT_HOST_PORT} --bind ${BIND_HOST_PORT} --drop-after ${DROP_AFTER}
 
 # Security sandbox features
 CapabilityBoundingSet=CAP_NET_BIND_SERVICE CAP_DAC_READ_SEARCH
