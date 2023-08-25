@@ -1,0 +1,22 @@
+name: Build And Test
+
+on:
+  push:
+    tags:
+      - '*'
+
+  docker:
+    runs-on: ubuntu-latest
+    concurrency: release
+    environment: Production
+    if: github.repository == 'andrewjw/prom433' && github.ref == 'refs/heads/main'
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Docker
+        run: |
+          export VERSION=${GITHUB_REF#refs/*/}
+          DOCKER_TOKEN=${{ secrets.DOCKER_TOKEN }} TAG=$VERSION ./docker_push.sh
+ 
