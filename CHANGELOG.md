@@ -2,6 +2,21 @@
 
 
 
+## v2.3.6 (2023-08-25)
+
+### Chore
+
+* chore: fix workflow name ([`4657d10`](https://github.com/andrewjw/prom433/commit/4657d108eef12d9985051ff54d4c58152e6d305f))
+
+* chore: Upload to PyPi and GitHub ([`d5f0946`](https://github.com/andrewjw/prom433/commit/d5f09469fe7199a392bcb6891cb50fdebff6c900))
+
+* chore: Require twine to upload to pypi ([`fdde550`](https://github.com/andrewjw/prom433/commit/fdde550e5b47f8588e8c19b107f09c5c0c5c8467))
+
+### Fix
+
+* fix: only try to upload if a release was made ([`f213b42`](https://github.com/andrewjw/prom433/commit/f213b42426c6bb43f8afa09cd35545a3ee880e5a))
+
+
 ## v2.3.5 (2023-08-25)
 
 ### Fix
