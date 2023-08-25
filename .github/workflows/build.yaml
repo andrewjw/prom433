@@ -58,5 +58,7 @@ jobs:
         run: |
           git config --global user.email "andrewjwilkinson@gmail.com"
           git config --global user.name "Andrew Wilkinson"
-          GH_TOKEN=${{ secrets.GITHUB_TOKEN }} PYPI_TOKEN=${{ secrets.PYPI_TOKEN }} semantic-release version
- 
+          GH_TOKEN=${{ secrets.GITHUB_TOKEN }} semantic-release version
+          twine check dist/*
+          TWINE_USERNAME=__token__ TWINE_PASSWORD=${{ secrets.PYPI_TOKEN }} twine upload dist/*
+          GH_TOKEN=${{ secrets.GITHUB_TOKEN }} semantic-release upload
