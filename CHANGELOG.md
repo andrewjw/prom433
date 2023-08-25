@@ -2,6 +2,13 @@
 
 
 
+## v2.3.7 (2023-08-25)
+
+### Fix
+
+* fix: Fix action ([`23aecd3`](https://github.com/andrewjw/prom433/commit/23aecd35f9c1373f0c680c496185a61399079b11))
+
+
 ## v2.3.6 (2023-08-25)
 
 ### Chore
