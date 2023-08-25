@@ -2,6 +2,17 @@
 
 
 
+## v2.3.5 (2023-08-25)
+
+### Fix
+
+* fix: Move to new semantic release config. ([`630e8ab`](https://github.com/andrewjw/prom433/commit/630e8abd02b1d40a1ac5ef548cd3765e1d388083))
+
+### Unknown
+
+* Fix: Require wheel so we can release wheels ([`16869e2`](https://github.com/andrewjw/prom433/commit/16869e27f6959fd3b6de1f29fb4fea3efdd07007))
+
+
 ## v2.3.4 (2023-08-25)
 
 ### Fix
