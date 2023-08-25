@@ -60,7 +60,7 @@ jobs:
         run: |
           git config --global user.email "andrewjwilkinson@gmail.com"
           git config --global user.name "Andrew Wilkinson"
-          export VERSION=$(semantic-release version --noop)
+          export VERSION=$(semantic-release --noop version)
           if [ ! -z "$VERSION" ]; then
              semantic-release version
              GH_TOKEN=${{ secrets.GITHUB_TOKEN }} PYPI_TOKEN=${{ secrets.PYPI_TOKEN }} semantic-release publish
