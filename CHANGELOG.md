@@ -2,6 +2,13 @@
 
 
 
+## v2.3.3 (2023-08-25)
+
+### Fix
+
+* fix: Publish docker image on tag creation. ([`0960e2e`](https://github.com/andrewjw/prom433/commit/0960e2e208a402fa08d18b68719a89f144bce981))
+
+
 ## v2.3.2 (2023-08-25)
 
 ### Chore
