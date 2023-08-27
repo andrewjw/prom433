@@ -2,6 +2,17 @@
 
 
 
+## v2.3.8 (2023-08-27)
+
+### Chore
+
+* chore(deps): update dependency python-semantic-release to v8.0.8 ([`750dbb9`](https://github.com/andrewjw/prom433/commit/750dbb9f3051e3bf942730cbbb9c99c03f06e0db))
+
+### Fix
+
+* fix: Switch back to building docker in main workflow. ([`34d9be7`](https://github.com/andrewjw/prom433/commit/34d9be7fc4aa2126556a43b5766c153f7df5f3a9))
+
+
 ## v2.3.7 (2023-08-25)
 
 ### Fix
