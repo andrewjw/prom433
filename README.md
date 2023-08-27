@@ -1,5 +1,6 @@
 # prom433
 
+[![Pipeline](https://github.com/andrewjw/prom433/actions/workflows/build.yml/badge.svg)](https://github.com/andrewjw/prom433/actions/workflows/build.yml)
 [![PyPI version](https://badge.fury.io/py/prom433.svg)](https://pypi.org/project/prom433/)
 [![PyPI - Downloads](https://img.shields.io/pypi/dm/prom433)](https://pypi.org/project/prom433/)
 [![Docker Image Version (latest semver)](https://img.shields.io/docker/v/andrewjw/prom433)](https://hub.docker.com/r/andrewjw/prom433)
