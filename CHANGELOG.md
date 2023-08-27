@@ -2,6 +2,17 @@
 
 
 
+## v2.3.9 (2023-08-27)
+
+### Chore
+
+* chore: Add some more badges to the readme. ([`a7832bc`](https://github.com/andrewjw/prom433/commit/a7832bcd396a950f8464ca0471ef695b60d21160))
+
+### Fix
+
+* fix: Switch back to building docker in main workflow. ([`1cf8e13`](https://github.com/andrewjw/prom433/commit/1cf8e137c73397e38009b451c9faa9d44f07a88b))
+
+
 ## v2.3.8 (2023-08-27)
 
 ### Chore
