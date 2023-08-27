@@ -1,9 +1,9 @@
 # prom433
 
 [![PyPI version](https://badge.fury.io/py/prom433.svg)](https://pypi.org/project/prom433/)
-[![PyPI - Downloads](https://img.shields.io/pypi/:period/prom433)](https://pypi.org/project/prom433/)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/prom433)](https://pypi.org/project/prom433/)
 [![Docker Image Version (latest semver)](https://img.shields.io/docker/v/andrewjw/prom433)](https://hub.docker.com/r/andrewjw/prom433)
-[![Docker Pulls](https://img.shields.io/docker/pulls/:user/:repo)](https://hub.docker.com/r/andrewjw/prom433)
+[![Docker Pulls](https://img.shields.io/docker/pulls/andrewjw/prom433)](https://hub.docker.com/r/andrewjw/prom433)
 [![Coverage Status](https://coveralls.io/repos/github/andrewjw/prom433/badge.svg?branch=main)](https://coveralls.io/github/andrewjw/prom433?branch=master)
 
 Exposes Prometheus metrics based on data received by `rtl_433`.
