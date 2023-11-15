@@ -2,6 +2,47 @@
 
 
 
+## v2.4.0 (2023-11-15)
+
+### Chore
+
+* chore: Test on Python 3.12 ([`dfdaf38`](https://github.com/andrewjw/prom433/commit/dfdaf38c8fad6db4c3ba34423229c154e878adfc))
+
+* chore: Don&#39;t automerge dockerfile changes, as they aren&#39;t tested. ([`18a0d46`](https://github.com/andrewjw/prom433/commit/18a0d4610e5098a6eabb0489dd162103d242f066))
+
+* chore(deps): update dependency wheel to v0.41.3 ([`707d398`](https://github.com/andrewjw/prom433/commit/707d3988426a639dc2ee262e90789237baabd0eb))
+
+* chore(deps): update dependency python-semantic-release to v8.3.0 ([`c5e2cd8`](https://github.com/andrewjw/prom433/commit/c5e2cd85a7c623b3f5221d0c5208b4fd9522429f))
+
+* chore(deps): update dependency python-semantic-release to v8.2.0 ([`b7e0882`](https://github.com/andrewjw/prom433/commit/b7e08824098d42fdf9f533221dd69141d6b9ac14))
+
+* chore(deps): update actions/checkout digest to b4ffde6 ([`5ca5f0d`](https://github.com/andrewjw/prom433/commit/5ca5f0dcc6cdf6264aa2c4311869d63741867ba2))
+
+* chore(deps): update dependency python-semantic-release to v8.1.2 ([`0dc887f`](https://github.com/andrewjw/prom433/commit/0dc887f86d8e24bf23b24d5c545072b4d3556a6a))
+
+* chore(deps): update dependency pycodestyle to v2.11.1 ([`daa6b0d`](https://github.com/andrewjw/prom433/commit/daa6b0d9c2bdabbcd5f3ff8eafaf820d3d3eb91c))
+
+* chore(deps): update python docker tag to v3.12 ([`0f6ad29`](https://github.com/andrewjw/prom433/commit/0f6ad29e4b2af851fbe6fcf7ca012bd8dfcac44f))
+
+* chore(deps): update actions/checkout digest to 8ade135 ([`9cd9912`](https://github.com/andrewjw/prom433/commit/9cd9912c7576555fccefd6b8f26e5fae3294eb58))
+
+* chore(deps): update actions/checkout action to v4 ([`5d24b49`](https://github.com/andrewjw/prom433/commit/5d24b491088b5adabbb46818fa096d1b5734b363))
+
+* chore(deps): update dependency python-semantic-release to v8.1.1 ([`82744e5`](https://github.com/andrewjw/prom433/commit/82744e5749261cfba152cba67ae2f5dedf068ab2))
+
+* chore: Fix badge link ([`aed1d4f`](https://github.com/andrewjw/prom433/commit/aed1d4f766c1586b79b32986ef40e5dbef0364e9))
+
+* chore: Add workflow badge. ([`ee9d896`](https://github.com/andrewjw/prom433/commit/ee9d896df429c9f46ac95dfdb114e26ef7f2930a))
+
+* chore: Restore run action on tags. ([`9b0fd68`](https://github.com/andrewjw/prom433/commit/9b0fd68c2c71ee135f20e2afd18a4aea371e236f))
+
+* chore: Fix badges. ([`961af4c`](https://github.com/andrewjw/prom433/commit/961af4c04e30a8e0c057b56e177549327f31f356))
+
+### Feature
+
+* feat: Support Python 3.12 ([`e70448f`](https://github.com/andrewjw/prom433/commit/e70448f1aecffd93cbfb74bfa4c5b9a4b21c6bf9))
+
+
 ## v2.3.9 (2023-08-27)
 
 ### Chore
