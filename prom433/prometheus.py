@@ -91,6 +91,8 @@ METRICS_PREFIXES = {
     "prom433_light_lux": [LUX_HELP, LUX_TYPE],
     "prom433_last_message": [LAST_MESSAGE_HELP, LAST_MESSAGE_TYPE],
     "prom433_freq": [FREQ_HELP, FREQ_TYPE],
+    "prom433_freq1": [FREQ_HELP, FREQ_TYPE],
+    "prom433_freq2": [FREQ_HELP, FREQ_TYPE],
     "prom433_rssi": [RSSI_HELP, RSSI_TYPE],
     "prom433_snr": [SNR_HELP, SNR_TYPE],
     "prom433_noise": [NOISE_HELP, NOISE_TYPE],
