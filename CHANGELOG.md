@@ -2,6 +2,27 @@
 
 
 
+## v2.5.0 (2024-01-24)
+
+### Chore
+
+* chore(deps): update dependency python-semantic-release to v8.7.0 ([`4307652`](https://github.com/andrewjw/prom433/commit/43076520dbd8557590a8a612e72e7fa5d6605107))
+
+* chore(deps): update dependency python-semantic-release to v8.5.2 ([`b0c25f6`](https://github.com/andrewjw/prom433/commit/b0c25f60d2aa4e4106df2ccab0ff520a715c2147))
+
+* chore(deps): update dependency python-semantic-release to v8.5.1 ([`3d3b1a9`](https://github.com/andrewjw/prom433/commit/3d3b1a9bb0f837845d1c988742606b684dcc07b3))
+
+* chore(deps): update actions/setup-python action to v5 ([`6525e16`](https://github.com/andrewjw/prom433/commit/6525e16811bf2f50e933ca65d1cdb6093a57a18f))
+
+* chore(deps): update dependency python-semantic-release to v8.5.0 ([`5fd3194`](https://github.com/andrewjw/prom433/commit/5fd3194833bc45ac8503415b8685f012961011f3))
+
+* chore(deps): update dependency wheel to v0.42.0 ([`dcf102d`](https://github.com/andrewjw/prom433/commit/dcf102dea2435ab21f691e12ea69f8c547df123a))
+
+### Feature
+
+* feat: Ignore newbattery tags for LaCrosse weather stations. Log multiple frequencies if using frequency hopping. ([`5a3b3d1`](https://github.com/andrewjw/prom433/commit/5a3b3d190d1cd7bbda919a4135b48fc566db3bfd))
+
+
 ## v2.4.0 (2023-11-15)
 
 ### Chore
