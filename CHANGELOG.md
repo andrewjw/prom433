@@ -2,6 +2,13 @@
 
 
 
+## v2.5.1 (2024-01-24)
+
+### Fix
+
+* fix: Add missing metrix help text ([`44d1f2f`](https://github.com/andrewjw/prom433/commit/44d1f2feaad33b27647adf471ec5375d42df2e42))
+
+
 ## v2.5.0 (2024-01-24)
 
 ### Chore
