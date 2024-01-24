@@ -108,7 +108,9 @@ TAG_KEYS = {"id", "channel", "model"}
 
 IGNORE_TAGS = {
     "*": {"mic", "mod"},
-    "Fineoffset-WHx080": {"subtype"}
+    "Fineoffset-WHx080": {"subtype"},
+    "LaCrosse-TX35DTHIT": {"newbattery"},
+    "LaCrosse-TX29IT": {"newbattery"}
 }
 
 METRIC_NAME = {
@@ -126,6 +128,8 @@ METRIC_NAME = {
     "light_lux": "prom433_light_lux",
     "last_message": "prom433_last_message",
     "freq": "prom433_freq",
+    "freq1": "prom433_freq1",
+    "freq2": "prom433_freq2",
     "rssi": "prom433_rssi",
     "snr": "prom433_snr",
     "noise": "prom433_noise",
