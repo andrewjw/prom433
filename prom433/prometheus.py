@@ -116,8 +116,10 @@ METRICS_CONVERT = {
         lambda x: dateutil.utils.default_tzinfo(dateutil.parser.parse(x),
                                                 dateutil.tz.tzoffset("UTC", 0))
         .timestamp(),
-    "prom433_battery_V": lambda v: v / 1000.0, # TODO: need to only do if the original metric is in mV
-    "prom433_firmware": lambda v: v if isinstance(v, int) or v.isnumeric() else None
+    # TODO: need to only do if the original metric is in mV
+    "prom433_battery_V": lambda v: v / 1000.0,
+    "prom433_firmware":
+        lambda v: v if isinstance(v, int) or v.isnumeric() else None
 }
 
 TAG_KEYS = {"id", "channel", "model"}
