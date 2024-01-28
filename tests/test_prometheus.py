@@ -58,6 +58,9 @@ class TestPrometheus(unittest.TestCase):
         self.assertIn(
             """prom433_radio_clock{channel="2", id="1940", """ +
             """model="Eurochron-EFTH800"} 1670453240.000000""", prom)
+        self.assertIn(
+            """prom433_battery_V{id="18326", model="Fineoffset-WS90"} """ +
+            """2.660000""", prom)
 
     def test_drop_metric_after(self):
         for line in DROP_TEXT.split("\n"):

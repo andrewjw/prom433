@@ -58,6 +58,12 @@ RAIN_TYPE = "counter"
 BATTERY_HELP = "The battery status."
 BATTERY_TYPE = "gauge"
 
+BATTERY_V_HELP = "The battery voltage."
+BATTERY_V_TYPE = "gauge"
+
+SUPERCAP_V_HELP = "The supercapacitor voltage."
+SUPERCAP_V_TYPE = "gauge"
+
 LAST_MESSAGE_HELP = "The time the last message was received."
 LAST_MESSAGE_TYPE = "counter"
 
@@ -76,8 +82,13 @@ NOISE_TYPE = "guage"
 RADIO_CLOCK_HELP = "The radio clock value of the last message, in unix time."
 RADIO_CLOCK_TYPE = "counter"
 
+FIRMWARE_HELP = "The firmware version."
+FIRMWARE_TYPE = "gauge"
+
 METRICS_PREFIXES = {
     "prom433_battery_ok": [BATTERY_HELP, BATTERY_TYPE],
+    "prom433_battery_V": [BATTERY_V_HELP, BATTERY_V_TYPE],
+    "prom433_supercap_V": [SUPERCAP_V_HELP, SUPERCAP_V_TYPE],
     "prom433_temperature": [TEMP_HELP, TEMP_TYPE],
     "prom433_humidity": [HUMIDITY_HELP, HUMIDITY_TYPE],
     "prom433_wind_dir_deg": [WIND_DIR_HELP, WIND_DIR_TYPE],
@@ -96,14 +107,17 @@ METRICS_PREFIXES = {
     "prom433_rssi": [RSSI_HELP, RSSI_TYPE],
     "prom433_snr": [SNR_HELP, SNR_TYPE],
     "prom433_noise": [NOISE_HELP, NOISE_TYPE],
-    "prom433_radio_clock": [RADIO_CLOCK_HELP, RADIO_CLOCK_TYPE]
+    "prom433_radio_clock": [RADIO_CLOCK_HELP, RADIO_CLOCK_TYPE],
+    "prom433_firmware": [FIRMWARE_HELP, FIRMWARE_TYPE]
 }
 
 METRICS_CONVERT = {
     "prom433_radio_clock":
         lambda x: dateutil.utils.default_tzinfo(dateutil.parser.parse(x),
                                                 dateutil.tz.tzoffset("UTC", 0))
-        .timestamp()
+        .timestamp(),
+    "prom433_battery_V": lambda v: v / 1000.0, # TODO: need to only do if the original metric is in mV
+    "prom433_firmware": lambda v: v if isinstance(v, int) or v.isnumeric() else None
 }
 
 TAG_KEYS = {"id", "channel", "model"}
@@ -112,11 +126,14 @@ IGNORE_TAGS = {
     "*": {"mic", "mod"},
     "Fineoffset-WHx080": {"subtype"},
     "LaCrosse-TX35DTHIT": {"newbattery"},
-    "LaCrosse-TX29IT": {"newbattery"}
+    "LaCrosse-TX29IT": {"newbattery"},
+    "Fineoffset-WS90": {"flags", "data"}
 }
 
 METRIC_NAME = {
     "battery_ok": "prom433_battery_ok",
+    "battery_mV": "prom433_battery_V",
+    "supercap_V": "prom433_supercap_V",
     "temperature_C": "prom433_temperature",
     "humidity": "prom433_humidity",
     "wind_dir_deg": "prom433_wind_dir_deg",
@@ -135,7 +152,9 @@ METRIC_NAME = {
     "rssi": "prom433_rssi",
     "snr": "prom433_snr",
     "noise": "prom433_noise",
-    "radio_clock": "prom433_radio_clock"
+    "radio_clock": "prom433_radio_clock",
+    "light_lux": "prom433_light_lux",
+    "firmware": "prom433_firmware",
 }
 
 # {"time" : "2021-05-08 15:27:58", "model" : "Fineoffset-WHx080",
@@ -174,6 +193,8 @@ def prometheus(message, drop_after):
     METRICS["prom433_last_message"][tag_value] = time_value
     for key in data:
         metric = METRIC_NAME[key]
+        if metric is None:
+            continue
         if metric not in METRICS:
             METRICS[metric] = {}
         METRICS[metric][tag_value] = \
@@ -213,6 +234,7 @@ def get_metrics():
         lines.append(TYPE_FORMAT
                      % (metric_name, METRICS_PREFIXES[metric_name][1]))
         for (tags, values) in METRICS[metric_name].items():
-            lines.append(METRIC_FORMAT % (metric_name, tags, values))
+            if values is not None:
+                lines.append(METRIC_FORMAT % (metric_name, tags, values))
 
     return "\n".join(lines)
