@@ -2,6 +2,15 @@
 
 
 
+## v2.6.0 (2024-01-28)
+
+### Feature
+
+* feat: Add support for extra metrics from the Ecowitt / Fineoffset WS9… (#50)
+
+* feat: Add support for extra metrics from the Ecowitt / Fineoffset WS90 (Wittboy GW2001 station) ([`12f5447`](https://github.com/andrewjw/prom433/commit/12f5447ae9cf693457c0a79e00535a2ccb39bbea))
+
+
 ## v2.5.1 (2024-01-24)
 
 ### Fix
