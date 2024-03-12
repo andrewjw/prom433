@@ -4,4 +4,4 @@ python-semantic-release==8.7.0
 paho-mqtt==1.6.1
 python-dateutil==2.9.0.post0
 wheel==0.43.0
-twine==4.0.2
+twine==5.0.0
