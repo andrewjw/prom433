@@ -23,9 +23,11 @@ import sys
 
 from prom433 import get_arguments, serve, prometheus
 
-def on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
+def on_connect(client: mqtt.Client, userdata, flags, reason_code, properties):
+    if reason_code > 0:
+        sys.stderr.write(f"Failed to connect to mqtt: {reason_code}")
 
+    print("Successfully connected to mqtt broker.")
     client.subscribe("rtl_433/+/events")
 
 
@@ -55,7 +57,7 @@ def parse_mqtt_url(url: str) -> Tuple[str, int]:
 def main():
     args = get_arguments(sys.argv[1:])
 
-    client = mqtt.Client()
+    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
 
     client.on_connect = on_connect
     client.on_message = \
