@@ -1,6 +1,68 @@
 # CHANGELOG
 
+## v2.6.1 (2024-06-28)
 
+### Chore
+
+* chore(deps): update dependency paho-mqtt to v2 ([`3f7c52a`](https://github.com/andrewjw/prom433/commit/3f7c52a45013a53c8bf5182a5bdf72d0badca2c2))
+
+* chore(deps): update dependency twine to v5.1.1 ([`6e6595b`](https://github.com/andrewjw/prom433/commit/6e6595be547f87864227ec51d8bdd962471b7e38))
+
+* chore(deps): update dependency python-semantic-release to v9.8.3 ([`ad51143`](https://github.com/andrewjw/prom433/commit/ad511438937756c9c895015aac590100926a4e1c))
+
+* chore(deps): update dependency python-semantic-release to v9.8.2 ([`6038974`](https://github.com/andrewjw/prom433/commit/60389744e181a83caa929ede649a0c9e3078c820))
+
+* chore(deps): update dependency pycodestyle to v2.12.0 ([`0be7c73`](https://github.com/andrewjw/prom433/commit/0be7c737f5fc5aca745e8e528d43548ce9f6ce4b))
+
+* chore(deps): update actions/checkout digest to 692973e ([`8dc57e1`](https://github.com/andrewjw/prom433/commit/8dc57e161821d2c474f506d3e226eafcabe23b65))
+
+* chore(deps): update dependency python-semantic-release to v9.8.1 ([`11cba88`](https://github.com/andrewjw/prom433/commit/11cba887f80990b8a683621f85c0503ef8eb9176))
+
+* chore(deps): update dependency python-semantic-release to v9.8.0 ([`8cd669b`](https://github.com/andrewjw/prom433/commit/8cd669beeacd255a8f66d829ea1e4c7b289f9bd7))
+
+* chore(deps): update actions/checkout digest to a5ac7e5 ([`5d82705`](https://github.com/andrewjw/prom433/commit/5d8270558e5cf6c700969f934e6dc4ce91a93493))
+
+* chore(deps): update dependency twine to v5.1.0 ([`56fd785`](https://github.com/andrewjw/prom433/commit/56fd785dc288adead88667fa8f4b6f46c49a47ca))
+
+* chore(deps): update dependency python-semantic-release to v9.7.3 ([`42acd31`](https://github.com/andrewjw/prom433/commit/42acd3134fa659ccc4a91a1b7375b0479f25234b))
+
+* chore(deps): update dependency coveralls to v4.0.1 ([`49eff88`](https://github.com/andrewjw/prom433/commit/49eff888402681cc76a1c5f2213468346e1b2298))
+
+* chore(deps): update dependency python-semantic-release to v9.7.2 ([`f5dd0c5`](https://github.com/andrewjw/prom433/commit/f5dd0c547783b2bdac4e0b365481ea19c86a0dd7))
+
+* chore(deps): update actions/checkout digest to 44c2b7a ([`0dc1880`](https://github.com/andrewjw/prom433/commit/0dc1880b962a8a9838c5b71880601867e8e56780))
+
+* chore(deps): update dependency python-semantic-release to v9.7.1 ([`19cec1b`](https://github.com/andrewjw/prom433/commit/19cec1b97f1cea0580fdf90d958a7ee8cddbbecf))
+
+* chore(deps): update dependency python-semantic-release to v9.7.0 ([`de7f4df`](https://github.com/andrewjw/prom433/commit/de7f4dfc5db7a4d52f43b1cdd70e8abbc646ab8f))
+
+* chore(deps): update dependency coveralls to v4 (#61)
+
+Co-authored-by: renovate[bot] &lt;29139614+renovate[bot]@users.noreply.github.com&gt; ([`3a99726`](https://github.com/andrewjw/prom433/commit/3a997269b910cf322815f1c910ae8a0b65764a97))
+
+* chore(deps): update dependency python-semantic-release to v9.6.0 ([`39e5e45`](https://github.com/andrewjw/prom433/commit/39e5e45541537c98ebadbf4489a2d65f11f3a60f))
+
+* chore(deps): update actions/checkout digest to 0ad4b8f ([`97c3a7a`](https://github.com/andrewjw/prom433/commit/97c3a7ae96f8b597bd607e7fd203d10698baa616))
+
+* chore(deps): update dependency python-semantic-release to v9.5.0 ([`4333504`](https://github.com/andrewjw/prom433/commit/433350451a221c0702ec5a09a9ffea71474afea6))
+
+* chore(deps): update actions/checkout digest to 1d96c77 ([`afecd2b`](https://github.com/andrewjw/prom433/commit/afecd2bfc8f25310d6ab113e5456fef79b8ed90e))
+
+* chore(deps): update dependency twine to v5 (#53)
+
+Co-authored-by: renovate[bot] &lt;29139614+renovate[bot]@users.noreply.github.com&gt; ([`f262e43`](https://github.com/andrewjw/prom433/commit/f262e437f6fe6012108dd909a376d2cedf833bf9))
+
+* chore(deps): update dependency python-semantic-release to v9 (#51)
+
+Co-authored-by: renovate[bot] &lt;29139614+renovate[bot]@users.noreply.github.com&gt; ([`155419b`](https://github.com/andrewjw/prom433/commit/155419bd49d619b6dfea35b831a676240b16d169))
+
+* chore(deps): update dependency wheel to v0.43.0 ([`3dca66b`](https://github.com/andrewjw/prom433/commit/3dca66bc7cf79a1bd52b560983e6d4dae7f1dfc1))
+
+* chore(deps): update dependency python-dateutil to v2.9.0.post0 ([`b255801`](https://github.com/andrewjw/prom433/commit/b255801bf02457a1dbd104967745796d3c3df8ae))
+
+### Fix
+
+* fix: Update code to be compatible with paho-mqtt&gt;=2.0.0 ([`c35886c`](https://github.com/andrewjw/prom433/commit/c35886c95af39f8f027fdb9a7b52bd6d23d81f26))
 
 ## v2.6.0 (2024-01-28)
 
@@ -10,13 +72,11 @@
 
 * feat: Add support for extra metrics from the Ecowitt / Fineoffset WS90 (Wittboy GW2001 station) ([`12f5447`](https://github.com/andrewjw/prom433/commit/12f5447ae9cf693457c0a79e00535a2ccb39bbea))
 
-
 ## v2.5.1 (2024-01-24)
 
 ### Fix
 
 * fix: Add missing metrix help text ([`44d1f2f`](https://github.com/andrewjw/prom433/commit/44d1f2feaad33b27647adf471ec5375d42df2e42))
-
 
 ## v2.5.0 (2024-01-24)
 
@@ -37,7 +97,6 @@
 ### Feature
 
 * feat: Ignore newbattery tags for LaCrosse weather stations. Log multiple frequencies if using frequency hopping. ([`5a3b3d1`](https://github.com/andrewjw/prom433/commit/5a3b3d190d1cd7bbda919a4135b48fc566db3bfd))
-
 
 ## v2.4.0 (2023-11-15)
 
@@ -79,7 +138,6 @@
 
 * feat: Support Python 3.12 ([`e70448f`](https://github.com/andrewjw/prom433/commit/e70448f1aecffd93cbfb74bfa4c5b9a4b21c6bf9))
 
-
 ## v2.3.9 (2023-08-27)
 
 ### Chore
@@ -89,7 +147,6 @@
 ### Fix
 
 * fix: Switch back to building docker in main workflow. ([`1cf8e13`](https://github.com/andrewjw/prom433/commit/1cf8e137c73397e38009b451c9faa9d44f07a88b))
-
 
 ## v2.3.8 (2023-08-27)
 
@@ -101,13 +158,11 @@
 
 * fix: Switch back to building docker in main workflow. ([`34d9be7`](https://github.com/andrewjw/prom433/commit/34d9be7fc4aa2126556a43b5766c153f7df5f3a9))
 
-
 ## v2.3.7 (2023-08-25)
 
 ### Fix
 
 * fix: Fix action ([`23aecd3`](https://github.com/andrewjw/prom433/commit/23aecd35f9c1373f0c680c496185a61399079b11))
-
 
 ## v2.3.6 (2023-08-25)
 
@@ -123,7 +178,6 @@
 
 * fix: only try to upload if a release was made ([`f213b42`](https://github.com/andrewjw/prom433/commit/f213b42426c6bb43f8afa09cd35545a3ee880e5a))
 
-
 ## v2.3.5 (2023-08-25)
 
 ### Fix
@@ -134,20 +188,17 @@
 
 * Fix: Require wheel so we can release wheels ([`16869e2`](https://github.com/andrewjw/prom433/commit/16869e27f6959fd3b6de1f29fb4fea3efdd07007))
 
-
 ## v2.3.4 (2023-08-25)
 
 ### Fix
 
 * fix: Publish docker image on tag creation. ([`40da6da`](https://github.com/andrewjw/prom433/commit/40da6dac2d3336e05956cbd8bf0bfe6a3393566c))
 
-
 ## v2.3.3 (2023-08-25)
 
 ### Fix
 
 * fix: Publish docker image on tag creation. ([`0960e2e`](https://github.com/andrewjw/prom433/commit/0960e2e208a402fa08d18b68719a89f144bce981))
-
 
 ## v2.3.2 (2023-08-25)
 
@@ -194,7 +245,6 @@ Co-authored-by: renovate[bot] &lt;29139614+renovate[bot]@users.noreply.github.co
 
 * fix: Fix release for semantic-release v8 ([`35ac16f`](https://github.com/andrewjw/prom433/commit/35ac16fca03f53f3dbd73d34284dd91acf0d6b1d))
 
-
 ## v2.3.1 (2023-03-28)
 
 ### Chore
@@ -216,7 +266,6 @@ Co-authored-by: renovate[bot] &lt;29139614+renovate[bot]@users.noreply.github.co
 ### Fix
 
 * fix: Make error clearer when failing to connect to MQTT server. (#21) ([`cc923b3`](https://github.com/andrewjw/prom433/commit/cc923b33dcb941be40e46ff32471a730d8ae0387))
-
 
 ## v2.3.0 (2023-03-09)
 
@@ -262,7 +311,6 @@ a way to parse these formats generically, and handles timezones well.
 
 Co-authored-by: Andrew Wilkinson &lt;andrewjwilkinson@gmail.com&gt; ([`023ee63`](https://github.com/andrewjw/prom433/commit/023ee63ee986c87d6e9a00a493cd7b98101d4cca))
 
-
 ## v2.2.0 (2023-02-28)
 
 ### Unknown
@@ -274,7 +322,6 @@ feat: add --quiet to suppress server logging ([`79e77bd`](https://github.com/and
 * Merge pull request #14 from agspoon/add_metrics
 
 feat: Add metrics ([`ac1242b`](https://github.com/andrewjw/prom433/commit/ac1242b2be5c50c76d3b8b7e35b285ee6d73fc23))
-
 
 ## v2.1.2 (2023-02-27)
 
@@ -301,7 +348,6 @@ version selected on the platform. ([`bc56611`](https://github.com/andrewjw/prom4
 ### Unknown
 
 * Merge pull request #13 from agspoon/fix_python_version ([`346b2f9`](https://github.com/andrewjw/prom433/commit/346b2f9efa89a0621016402a311d89c103eeb946))
-
 
 ## v2.1.1 (2023-02-23)
 
@@ -335,7 +381,6 @@ chore(deps): update dependency pycodestyle to v2.10.0 ([`79737c0`](https://githu
 
 chore(deps): update python docker tag to v3.11 ([`1b9b56c`](https://github.com/andrewjw/prom433/commit/1b9b56caacf531c1e19e975b188054688bdc1f22))
 
-
 ## v2.1.0 (2023-01-20)
 
 ### Chore
@@ -349,7 +394,6 @@ chore(deps): update python docker tag to v3.11 ([`1b9b56c`](https://github.com/a
 ### Feature
 
 * feat: Add support for radio clock values. ([`525191a`](https://github.com/andrewjw/prom433/commit/525191a1b421c70fbd2f8bb4d24cdbce2861e038))
-
 
 ## v2.0.0 (2022-11-10)
 
@@ -367,7 +411,6 @@ BREAKING CHANGE: Metrics will be dropped after 1 hour if not updated. Add --drop
 
 * chore: Switch coveralls library. ([`30476ec`](https://github.com/andrewjw/prom433/commit/30476ece831a20b15d900b4cfe0c36e9df47fe54))
 
-
 ## v1.1.4 (2022-11-09)
 
 ### Chore
@@ -378,13 +421,11 @@ BREAKING CHANGE: Metrics will be dropped after 1 hour if not updated. Add --drop
 
 * fix: Since we switched to mqtt there is no need to install rtl_433 in our Docker image. ([`5f2c147`](https://github.com/andrewjw/prom433/commit/5f2c147008b049e8bb6a0400b1f36c1725e6640d))
 
-
 ## v1.1.3 (2022-11-09)
 
 ### Fix
 
 * fix: Handle exceptions when processing messages and keep running. ([`a3295fe`](https://github.com/andrewjw/prom433/commit/a3295fe25b78286c752e7525195e537b9d07bbfc))
-
 
 ## v1.1.2 (2022-11-08)
 
@@ -392,20 +433,17 @@ BREAKING CHANGE: Metrics will be dropped after 1 hour if not updated. Add --drop
 
 * fix: Fix typo in last message metric name. ([`f6d5288`](https://github.com/andrewjw/prom433/commit/f6d52886cce06c2d4a4d7f22e6edca4d081b14c8))
 
-
 ## v1.1.1 (2022-11-08)
 
 ### Fix
 
 * fix: Don&#39;t warn on tag values we known we should ignore. ([`b6f7c77`](https://github.com/andrewjw/prom433/commit/b6f7c77acae7b3ce924d854134ef395ce1b9de8f))
 
-
 ## v1.1.0 (2022-11-08)
 
 ### Feature
 
 * feat: Handle extra values about frequency and noise that are added to messages sent by rtl_433 with -M level. ([`36aa076`](https://github.com/andrewjw/prom433/commit/36aa076774b8eb35c7590f70e1ce338eb3643651))
-
 
 ## v1.0.0 (2022-11-08)
 
@@ -415,13 +453,11 @@ BREAKING CHANGE: Metrics will be dropped after 1 hour if not updated. Add --drop
 
 BREAKING CHANGE: All metrics have been renamed. ([`57d68ec`](https://github.com/andrewjw/prom433/commit/57d68ec69e2c63486ea6466b043eef274e3e68ef))
 
-
 ## v0.4.2 (2022-04-27)
 
 ### Fix
 
 * fix: Handle correct type for mqtt messages. ([`01d91ac`](https://github.com/andrewjw/prom433/commit/01d91ac20de8a955e2e981ced0682b2eaaef6661))
-
 
 ## v0.4.1 (2022-04-27)
 
@@ -429,13 +465,11 @@ BREAKING CHANGE: All metrics have been renamed. ([`57d68ec`](https://github.com/
 
 * fix: Fix message handler prototype. ([`2998de3`](https://github.com/andrewjw/prom433/commit/2998de3bf25c3edbd9bdebbf4628bbca4ec152c3))
 
-
 ## v0.4.0 (2022-04-27)
 
 ### Feature
 
 * feat: Switch to listening to MQTT messages rather than running rtl_433 directly. ([`1d81a6f`](https://github.com/andrewjw/prom433/commit/1d81a6fd6ad789ba0f195c0fd673b253130c6a45))
-
 
 ## v0.3.4 (2022-02-11)
 
@@ -443,13 +477,11 @@ BREAKING CHANGE: All metrics have been renamed. ([`57d68ec`](https://github.com/
 
 * fix: Use correct parameter for setting rtl_433 output to Json. ([`464dd07`](https://github.com/andrewjw/prom433/commit/464dd079d3af4b8446c2d5f5ebb60d6e9ff7e455))
 
-
 ## v0.3.3 (2022-02-10)
 
 ### Fix
 
 * fix: Use correct package name for rtl-433. ([`3589181`](https://github.com/andrewjw/prom433/commit/3589181eff90d74f4f0dab18273ec99c87cfddcb))
-
 
 ## v0.3.2 (2022-02-08)
 
@@ -457,13 +489,11 @@ BREAKING CHANGE: All metrics have been renamed. ([`57d68ec`](https://github.com/
 
 * fix: Add universe repo to allow us to install rtl_433. ([`ca4835e`](https://github.com/andrewjw/prom433/commit/ca4835e6a07be60799fca41253ba9c7a2af3bbce))
 
-
 ## v0.3.1 (2022-02-07)
 
 ### Fix
 
 * fix: Add universe repository. ([`f77c19c`](https://github.com/andrewjw/prom433/commit/f77c19c9367bc741323dcf643d497e3c50a328b3))
-
 
 ## v0.3.0 (2022-02-03)
 
@@ -471,13 +501,11 @@ BREAKING CHANGE: All metrics have been renamed. ([`57d68ec`](https://github.com/
 
 * feat: Switch to Python slim image so we can install Python packages more easily. ([`e9e652e`](https://github.com/andrewjw/prom433/commit/e9e652eff0037a29503c89d113d7a5f1d34eb4c2))
 
-
 ## v0.2.5 (2022-01-03)
 
 ### Fix
 
 * fix: Use a docker image with rtl_433 installed. ([`7184aed`](https://github.com/andrewjw/prom433/commit/7184aed72c6a742727299c7818318b243471f7ef))
-
 
 ## v0.2.4 (2021-12-09)
 
@@ -485,13 +513,11 @@ BREAKING CHANGE: All metrics have been renamed. ([`57d68ec`](https://github.com/
 
 * fix: Fix imports in main script. ([`6fa43c8`](https://github.com/andrewjw/prom433/commit/6fa43c88cd05a962c2a9434b061eb9c74ab6f5a1))
 
-
 ## v0.2.3 (2021-12-09)
 
 ### Fix
 
 * fix: Fix build of docker container. ([`4797dde`](https://github.com/andrewjw/prom433/commit/4797dde8aedd6eb42ebbefc1ecc889467317477b))
-
 
 ## v0.2.2 (2021-11-24)
 
@@ -509,20 +535,17 @@ BREAKING CHANGE: All metrics have been renamed. ([`57d68ec`](https://github.com/
 
 chore(deps): update dependency python-semantic-release to v7.22.0 ([`cedd9e9`](https://github.com/andrewjw/prom433/commit/cedd9e9a92944ce461f837bee24520567e915b58))
 
-
 ## v0.2.1 (2021-11-11)
 
 ### Fix
 
 * fix: Fix branch name in coveralls link. ([`2803ebe`](https://github.com/andrewjw/prom433/commit/2803ebeb1570e7ef577d84f98bf2719646655db7))
 
-
 ## v0.2.0 (2021-11-11)
 
 ### Feature
 
 * feat: Add dockerfile. ([`dff1cd4`](https://github.com/andrewjw/prom433/commit/dff1cd480d5ec274b3dfb8867835ab933ec3454c))
-
 
 ## v0.1.0 (2021-11-11)
 
@@ -538,13 +561,11 @@ Configure Renovate ([`51aecdd`](https://github.com/andrewjw/prom433/commit/51aec
 
 * Add renovate.json ([`c949d85`](https://github.com/andrewjw/prom433/commit/c949d85b9768ff42788dc2a433e6078bc6ce7de8))
 
-
 ## v0.0.5 (2021-09-30)
 
 ### Fix
 
 * fix: Fix tagging docker image. ([`4824509`](https://github.com/andrewjw/prom433/commit/48245091ee591facd2fcc65aa1d9c915d071624e))
-
 
 ## v0.0.4 (2021-09-30)
 
@@ -552,13 +573,11 @@ Configure Renovate ([`51aecdd`](https://github.com/andrewjw/prom433/commit/51aec
 
 * fix: make docker_push.sh executable. ([`384ef6b`](https://github.com/andrewjw/prom433/commit/384ef6bcbb689ddc57aaaac311b1ac0829fb0006))
 
-
 ## v0.0.3 (2021-09-30)
 
 ### Fix
 
 * fix: Fix copy and paste error in setup.py. ([`bf6c32b`](https://github.com/andrewjw/prom433/commit/bf6c32b297e2b1a4323caca06dd937a6b59752f0))
-
 
 ## v0.0.2 (2021-09-30)
 
