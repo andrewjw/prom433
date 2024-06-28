@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## v2.6.2 (2024-06-28)
+
+### Fix
+
+* fix: Fix handling for connection failure to mqtt broker. ([`d0a6b4b`](https://github.com/andrewjw/prom433/commit/d0a6b4bcbe08130eed887a2c86cc42bbccce152f))
+
 ## v2.6.1 (2024-06-28)
 
 ### Chore
