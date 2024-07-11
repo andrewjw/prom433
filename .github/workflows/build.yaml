@@ -34,12 +34,22 @@ jobs:
         run: |
           ./run_tests.sh
 
+  docker:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Build Docker
+        run: |
+          python setup.py sdist
+          FILE=`ls dist/glowprom-*.tar.gz | cut -d- -f2`
+          TAG=${FILE%.tar.gz} ./docker_build.sh
+
   release:
     runs-on: ubuntu-latest
     concurrency: release
     environment: Production
     if: github.repository == 'andrewjw/prom433' && github.ref == 'refs/heads/main'
-    needs: build
+    needs: docker
     steps:
       - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
         with:
@@ -66,5 +76,5 @@ jobs:
             twine check dist/*
             TWINE_USERNAME=__token__ TWINE_PASSWORD=${{ secrets.PYPI_TOKEN }} twine upload dist/*
             GH_TOKEN=${{ secrets.GITHUB_TOKEN }} semantic-release publish
-            DOCKER_TOKEN=${{ secrets.DOCKER_TOKEN }} TAG=$VERSION ./docker_push.sh
+            DOCKER_TOKEN=${{ secrets.DOCKER_TOKEN }} TAG=$VERSION ./docker_build.sh --push
           fi
