@@ -28,7 +28,7 @@ except ImportError:
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-with open('requirements.txt' if os.path.exists('requirements.txt') else 'glowprom.egg-info/requires.txt') as f:
+with open('requirements.txt' if os.path.exists('requirements.txt') else 'prom433.egg-info/requires.txt') as f:
     requirements = f.read().splitlines()
 
 setuptools.setup(
