@@ -50,7 +50,7 @@ jobs:
       - name: Build Docker
         run: |
           python setup.py sdist
-          FILE=`ls dist/glowprom-*.tar.gz | cut -d- -f2`
+          FILE=`ls dist/prom433-*.tar.gz | cut -d- -f2`
           TAG=${FILE%.tar.gz} ./docker_build.sh
 
   release:
