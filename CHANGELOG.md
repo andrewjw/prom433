@@ -1,5 +1,19 @@
 # CHANGELOG
 
+## v2.6.3 (2024-07-31)
+
+### Chore
+
+* chore(deps): update dependency python-semantic-release to v9.8.6 ([`58ef960`](https://github.com/andrewjw/prom433/commit/58ef96055cc6818a59d43145f956324b0dc565ba))
+
+* chore(deps): update dependency python-semantic-release to v9.8.5 ([`d565404`](https://github.com/andrewjw/prom433/commit/d565404998601d935463a3427afe0f617c83298b))
+
+* chore(deps): update dependency python-semantic-release to v9.8.4 ([`75075ee`](https://github.com/andrewjw/prom433/commit/75075ee16859352c6f1076e6139ca63a24bf21c2))
+
+### Fix
+
+* fix: Improve docker by building arm versions, and installing a local .tar.gz file. ([`37c8d96`](https://github.com/andrewjw/prom433/commit/37c8d96a0fe3f6d2aeed9249341959719d8bc7c0))
+
 ## v2.6.2 (2024-06-28)
 
 ### Fix
@@ -319,6 +333,19 @@ Co-authored-by: Andrew Wilkinson &lt;andrewjwilkinson@gmail.com&gt; ([`023ee63`]
 
 ## v2.2.0 (2023-02-28)
 
+### Feature
+
+* feat: add --quiet to suppress server logging
+
+Suppress server logging of all requests to limit noise in long running system logs.
+Method taken from here,
+https://stackoverflow.com/questions/21631799/how-can-i-pass-parameters-to-a-requesthandler ([`9770f43`](https://github.com/andrewjw/prom433/commit/9770f433f2e2bb2825aabceaefc2b73660e99234))
+
+* feat: Add metrics
+
+Additional metrics to support AmbientWeather station.
+Wind avg/max, UV index/LUX/raw ([`f804439`](https://github.com/andrewjw/prom433/commit/f804439ce30dfbbcde4726a1aa78398ff1454fcf))
+
 ### Unknown
 
 * Merge pull request #15 from agspoon/add_quiet
@@ -330,19 +357,6 @@ feat: add --quiet to suppress server logging ([`79e77bd`](https://github.com/and
 feat: Add metrics ([`ac1242b`](https://github.com/andrewjw/prom433/commit/ac1242b2be5c50c76d3b8b7e35b285ee6d73fc23))
 
 ## v2.1.2 (2023-02-27)
-
-### Feature
-
-* feat: Add metrics
-
-Additional metrics to support AmbientWeather station.
-Wind avg/max, UV index/LUX/raw ([`f804439`](https://github.com/andrewjw/prom433/commit/f804439ce30dfbbcde4726a1aa78398ff1454fcf))
-
-* feat: add --quiet to suppress server logging
-
-Suppress server logging of all requests to limit noise in long running system logs.
-Method taken from here,
-https://stackoverflow.com/questions/21631799/how-can-i-pass-parameters-to-a-requesthandler ([`9770f43`](https://github.com/andrewjw/prom433/commit/9770f433f2e2bb2825aabceaefc2b73660e99234))
 
 ### Fix
 
@@ -364,6 +378,10 @@ version selected on the platform. ([`bc56611`](https://github.com/andrewjw/prom4
 * chore: Add CONTRIBUTING.md ([`98c61ce`](https://github.com/andrewjw/prom433/commit/98c61cecf9c190a7c133fb0600a4c6788e86497a))
 
 * chore(deps): update dependency python-semantic-release to v7.33.0 ([`f4e8e33`](https://github.com/andrewjw/prom433/commit/f4e8e33e297d413c5c444f846286b3636cf6a903))
+
+* chore(deps): update dependency pycodestyle to v2.10.0 ([`ec44a64`](https://github.com/andrewjw/prom433/commit/ec44a64e71879d6dadb6f0d98fd3093181a253e9))
+
+* chore(deps): update python docker tag to v3.11 ([`1a057b0`](https://github.com/andrewjw/prom433/commit/1a057b03c1b36af71c223d98ad63de449c6ca824))
 
 ### Fix
 
@@ -395,8 +413,6 @@ chore(deps): update python docker tag to v3.11 ([`1b9b56c`](https://github.com/a
 
 * chore: Style fixes. ([`bd74e6f`](https://github.com/andrewjw/prom433/commit/bd74e6f79991d4085ed793ef3e724b2af2e13162))
 
-* chore(deps): update dependency pycodestyle to v2.10.0 ([`ec44a64`](https://github.com/andrewjw/prom433/commit/ec44a64e71879d6dadb6f0d98fd3093181a253e9))
-
 ### Feature
 
 * feat: Add support for radio clock values. ([`525191a`](https://github.com/andrewjw/prom433/commit/525191a1b421c70fbd2f8bb4d24cdbce2861e038))
@@ -418,10 +434,6 @@ BREAKING CHANGE: Metrics will be dropped after 1 hour if not updated. Add --drop
 * chore: Switch coveralls library. ([`30476ec`](https://github.com/andrewjw/prom433/commit/30476ece831a20b15d900b4cfe0c36e9df47fe54))
 
 ## v1.1.4 (2022-11-09)
-
-### Chore
-
-* chore(deps): update python docker tag to v3.11 ([`1a057b0`](https://github.com/andrewjw/prom433/commit/1a057b03c1b36af71c223d98ad63de449c6ca824))
 
 ### Fix
 
