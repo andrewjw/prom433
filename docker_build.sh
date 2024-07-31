@@ -13,5 +13,3 @@ sudo docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 \
                          -t andrewjw/prom433:$TAG \
                          -t andrewjw/prom433:latest \
                          $1 .
-
-sudo docker push andrewjw/prom433:$TAG
