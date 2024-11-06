@@ -16,8 +16,27 @@
 
 from datetime import datetime
 import http.server
+import traceback
+
+from sentry_sdk import capture_exception  # type:ignore
 
 from .prometheus import get_metrics
+
+
+def handle_error(func):
+    def r(self, *args, **kwargs):
+        try:
+            return func(self, *args, **kwargs)
+        except Exception as e:
+            traceback.print_exception(e)
+            capture_exception(e)
+
+            self.send_response(500)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+
+            self.wfile.write(f"Exception Occurred.\n".encode("utf8"))
+    return r
 
 
 class Handler(http.server.BaseHTTPRequestHandler):
