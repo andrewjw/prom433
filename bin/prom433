@@ -15,11 +15,14 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import os
 import paho.mqtt.client as mqtt
 import traceback
 from typing import Tuple
 import socket
 import sys
+
+import sentry_sdk  # type:ignore
 
 from prom433 import get_arguments, serve, prometheus
 
@@ -39,6 +42,7 @@ def safe_on_message(on_message):
             sys.stderr.write(f"Exception processing message: {msg}\n")
 
             traceback.print_exc()
+            sentry_sdk.capture_exception(e)
 
     return safe_on_message
 
@@ -55,6 +59,12 @@ def parse_mqtt_url(url: str) -> Tuple[str, int]:
     return url, 1883
 
 def main():
+    sentry_sdk.init(
+        dsn=os.environ.get("SENTRY_DSN"),
+        traces_sample_rate=0.0,
+        profiles_sample_rate=0.0,
+    )
+
     args = get_arguments(sys.argv[1:])
 
     client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
