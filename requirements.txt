@@ -1,5 +1,5 @@
 pycodestyle==2.12.1
-coveralls==4.0.1
+python-coveralls==2.9.3
 python-semantic-release==10.0.2
 paho-mqtt==2.1.0
 python-dateutil==2.9.0.post0
