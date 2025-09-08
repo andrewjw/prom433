@@ -1,6 +1,6 @@
 pycodestyle==2.14.0
 coverage==7.10.6
-python-semantic-release==10.3.2
+python-semantic-release==10.4.0
 paho-mqtt==2.1.0
 python-dateutil==2.9.0.post0
 wheel==0.45.1
