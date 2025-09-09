@@ -6,4 +6,4 @@ python-dateutil==2.9.0.post0
 wheel==0.45.1
 twine==6.2.0
 setuptools==80.9.0
-sentry-sdk==2.37.0
+sentry-sdk==2.37.1
