@@ -1,5 +1,5 @@
 # prom433
-# Copyright (C) 2021 Andrew Wilkinson
+# Copyright (C) 2021-2026 Andrew Wilkinson
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -43,11 +43,11 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     scripts=["bin/prom433"],
     classifiers=[
-        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
         "Programming Language :: Python :: 3.13",
+        "Programming Language :: Python :: 3.14",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
     ],
