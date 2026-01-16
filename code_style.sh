@@ -2,4 +2,4 @@
 
 set -e
 
-${PYCODESTYLE:-pycodestyle} bin/ prom433/ tests/
+${BLACK:-black} bin/ prom433/ tests/
