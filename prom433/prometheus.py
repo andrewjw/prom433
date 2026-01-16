@@ -21,16 +21,13 @@ import dateutil.utils
 import json
 import logging
 
-METRICS = {
-    "prom433_last_message": {}
-}
+METRICS = {"prom433_last_message": {}}
 
 HELP_FORMAT = "#HELP %s %s"
 TYPE_FORMAT = "#TYPE %s %s "
 METRIC_FORMAT = "%s{%s} %f"
 
-TEMP_HELP = \
-    "The temperature in degrees celcius."
+TEMP_HELP = "The temperature in degrees celcius."
 TEMP_TYPE = "gauge"
 
 HUMIDITY_HELP = "The humidity in %."
@@ -108,18 +105,16 @@ METRICS_PREFIXES = {
     "prom433_snr": [SNR_HELP, SNR_TYPE],
     "prom433_noise": [NOISE_HELP, NOISE_TYPE],
     "prom433_radio_clock": [RADIO_CLOCK_HELP, RADIO_CLOCK_TYPE],
-    "prom433_firmware": [FIRMWARE_HELP, FIRMWARE_TYPE]
+    "prom433_firmware": [FIRMWARE_HELP, FIRMWARE_TYPE],
 }
 
 METRICS_CONVERT = {
-    "prom433_radio_clock":
-        lambda x: dateutil.utils.default_tzinfo(dateutil.parser.parse(x),
-                                                dateutil.tz.tzoffset("UTC", 0))
-        .timestamp(),
+    "prom433_radio_clock": lambda x: dateutil.utils.default_tzinfo(
+        dateutil.parser.parse(x), dateutil.tz.tzoffset("UTC", 0)
+    ).timestamp(),
     # TODO: need to only do if the original metric is in mV
     "prom433_battery_V": lambda v: v / 1000.0,
-    "prom433_firmware":
-        lambda v: v if isinstance(v, int) or v.isnumeric() else None
+    "prom433_firmware": lambda v: v if isinstance(v, int) or v.isnumeric() else None,
 }
 
 TAG_KEYS = {"id", "channel", "model"}
@@ -129,7 +124,7 @@ IGNORE_TAGS = {
     "Fineoffset-WHx080": {"subtype"},
     "LaCrosse-TX35DTHIT": {"newbattery"},
     "LaCrosse-TX29IT": {"newbattery"},
-    "Fineoffset-WS90": {"flags", "data"}
+    "Fineoffset-WS90": {"flags", "data"},
 }
 
 METRIC_NAME = {
@@ -177,11 +172,10 @@ def prometheus(message, drop_after):
 
     for key, value in payload.items():
         if key == "time":
-            if ':' in payload[key]:
+            if ":" in payload[key]:
                 time_value = dateutil.parser.parse(payload[key]).timestamp()
             else:
-                time_value = datetime.fromtimestamp(float(payload[key])) \
-                             .timestamp()
+                time_value = datetime.fromtimestamp(float(payload[key])).timestamp()
         elif key in TAG_KEYS:
             tags[key] = value
         elif key in METRIC_NAME:
@@ -189,8 +183,7 @@ def prometheus(message, drop_after):
         else:
             unknown[key] = value
 
-    tag_value = ", ".join(["%s=\"%s\"" % (k, payload[k])
-                           for k in sorted(tags)])
+    tag_value = ", ".join(['%s="%s"' % (k, payload[k]) for k in sorted(tags)])
 
     METRICS["prom433_last_message"][tag_value] = time_value
     for key in data:
@@ -199,11 +192,15 @@ def prometheus(message, drop_after):
             continue
         if metric not in METRICS:
             METRICS[metric] = {}
-        METRICS[metric][tag_value] = \
-            METRICS_CONVERT.get(metric, lambda x: x)(payload[key])
+        METRICS[metric][tag_value] = METRICS_CONVERT.get(metric, lambda x: x)(
+            payload[key]
+        )
 
-    unknown = {key: value for (key, value) in unknown.items() if key not in
-               (IGNORE_TAGS["*"] | IGNORE_TAGS.get(tags["model"], set()))}
+    unknown = {
+        key: value
+        for (key, value) in unknown.items()
+        if key not in (IGNORE_TAGS["*"] | IGNORE_TAGS.get(tags["model"], set()))
+    }
 
     if len(unknown) > 0:
         logging.warn(f"Message has unknown tags ({unknown}): {message}")
@@ -219,8 +216,9 @@ def prometheus(message, drop_after):
         if len(tags_to_drop) == 0:
             return
 
-        logging.info(f"Dropping {len(tags_to_drop)} as not seen"
-                     + " for {drop_after} seconds")
+        logging.info(
+            f"Dropping {len(tags_to_drop)} as not seen" + " for {drop_after} seconds"
+        )
         for tag_value in tags_to_drop:
             logging.info(f"Dropping {tag_value}")
             for metric in METRICS.keys():
@@ -231,11 +229,9 @@ def prometheus(message, drop_after):
 def get_metrics():
     lines = []
     for metric_name in sorted(METRICS.keys()):
-        lines.append(HELP_FORMAT
-                     % (metric_name, METRICS_PREFIXES[metric_name][0]))
-        lines.append(TYPE_FORMAT
-                     % (metric_name, METRICS_PREFIXES[metric_name][1]))
-        for (tags, values) in METRICS[metric_name].items():
+        lines.append(HELP_FORMAT % (metric_name, METRICS_PREFIXES[metric_name][0]))
+        lines.append(TYPE_FORMAT % (metric_name, METRICS_PREFIXES[metric_name][1]))
+        for tags, values in METRICS[metric_name].items():
             if values is not None:
                 lines.append(METRIC_FORMAT % (metric_name, tags, values))
 

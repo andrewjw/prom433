@@ -36,6 +36,7 @@ def handle_error(func):
             self.end_headers()
 
             self.wfile.write(f"Exception Occurred.\n".encode("utf8"))
+
     return r
 
 
@@ -57,26 +58,29 @@ class Handler(http.server.BaseHTTPRequestHandler):
     def send_index(self):
         self.send_response(200)
         self.end_headers()
-        self.wfile.write("""
+        self.wfile.write(
+            """
 <html>
 <head><title>RTL433 Prometheus</title></head>
 <body>
 <h1>RTL433 Prometheus</h1>
 <p><a href="/metrics">Metrics</a></p>
 </body>
-</html>""".encode("utf8"))
+</html>""".encode(
+                "utf8"
+            )
+        )
 
     def send_metrics(self):
         self.send_response(200)
         self.end_headers()
         self.wfile.write(get_metrics().encode("utf8"))
 
-    def log_request(self, code='-', size='-'):
+    def log_request(self, code="-", size="-"):
         if self.quiet:
             return
         else:
-            self.log_message('"%s" %s %s',
-                             self.requestline, str(code), str(size))
+            self.log_message('"%s" %s %s', self.requestline, str(code), str(size))
 
 
 def serve(args):  # pragma: no cover

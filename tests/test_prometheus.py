@@ -43,24 +43,35 @@ class TestPrometheus(unittest.TestCase):
         prom = get_metrics()
 
         self.assertIn(
-            """prom433_temperature{channel="1", id="147\"""" +
-            """, model="Nexus-TH"} 23.100000""", prom)
+            """prom433_temperature{channel="1", id="147\""""
+            + """, model="Nexus-TH"} 23.100000""",
+            prom,
+        )
         self.assertIn(
-            """prom433_temperature{id="250", """ +
-            """model="Fineoffset-WHx080"} 16.000000""",
-            prom)
+            """prom433_temperature{id="250", """
+            + """model="Fineoffset-WHx080"} 16.000000""",
+            prom,
+        )
         self.assertIn(
-            """prom433_temperature{channel="2", id="1940", """ +
-            """model="Eurochron-EFTH800"} 22.300000""", prom)
+            """prom433_temperature{channel="2", id="1940", """
+            + """model="Eurochron-EFTH800"} 22.300000""",
+            prom,
+        )
         self.assertIn(
-            """prom433_noise{channel="6", id="3672", """ +
-            """model="Eurochron-EFTH800"} -20.3544""", prom)
+            """prom433_noise{channel="6", id="3672", """
+            + """model="Eurochron-EFTH800"} -20.3544""",
+            prom,
+        )
         self.assertIn(
-            """prom433_radio_clock{channel="2", id="1940", """ +
-            """model="Eurochron-EFTH800"} 1670453240.000000""", prom)
+            """prom433_radio_clock{channel="2", id="1940", """
+            + """model="Eurochron-EFTH800"} 1670453240.000000""",
+            prom,
+        )
         self.assertIn(
-            """prom433_battery_V{id="18326", model="Fineoffset-WS90"} """ +
-            """2.660000""", prom)
+            """prom433_battery_V{id="18326", model="Fineoffset-WS90"} """
+            + """2.660000""",
+            prom,
+        )
 
     def test_drop_metric_after(self):
         for line in DROP_TEXT.split("\n"):
@@ -97,33 +108,49 @@ class TestPrometheus(unittest.TestCase):
 
         # Test for time in format time:utc:tz
         self.assertIn(
-            """prom433_last_message{id="1", """ +
-            """model="LaCrosse-TX"} 1677374905.000000""", prom)
+            """prom433_last_message{id="1", """
+            + """model="LaCrosse-TX"} 1677374905.000000""",
+            prom,
+        )
         # Test for time in format time:tz
         self.assertIn(
-            """prom433_last_message{id="2", """ +
-            """model="LaCrosse-TX"} 1677374905.000000""", prom)
+            """prom433_last_message{id="2", """
+            + """model="LaCrosse-TX"} 1677374905.000000""",
+            prom,
+        )
         # Test for time in format time:iso:tz
         self.assertIn(
-            """prom433_last_message{id="3", """ +
-            """model="LaCrosse-TX"} 1677374905.000000""", prom)
+            """prom433_last_message{id="3", """
+            + """model="LaCrosse-TX"} 1677374905.000000""",
+            prom,
+        )
         # Test for time in format time:unix
         self.assertIn(
-            """prom433_last_message{id="4", """ +
-            """model="LaCrosse-TX"} 1677374905.000000""", prom)
+            """prom433_last_message{id="4", """
+            + """model="LaCrosse-TX"} 1677374905.000000""",
+            prom,
+        )
         # Test for time in format time:utc:tz:usec
         self.assertIn(
-            """prom433_last_message{id="101", """ +
-            """model="LaCrosse-TX31UIT"} 1677374905.538138""", prom)
+            """prom433_last_message{id="101", """
+            + """model="LaCrosse-TX31UIT"} 1677374905.538138""",
+            prom,
+        )
         # Test for time in format time:tz:usec
         self.assertIn(
-            """prom433_last_message{id="102", """ +
-            """model="LaCrosse-TX31UIT"} 1677374905.538138""", prom)
+            """prom433_last_message{id="102", """
+            + """model="LaCrosse-TX31UIT"} 1677374905.538138""",
+            prom,
+        )
         # Test for time in format time:iso:tz:usec
         self.assertIn(
-            """prom433_last_message{id="103", """ +
-            """model="LaCrosse-TX31UIT"} 1677374905.538138""", prom)
+            """prom433_last_message{id="103", """
+            + """model="LaCrosse-TX31UIT"} 1677374905.538138""",
+            prom,
+        )
         # Test for time in format time:unix:usec
         self.assertIn(
-            """prom433_last_message{id="104", """ +
-            """model="LaCrosse-TX31UIT"} 1677374905.538138""", prom)
+            """prom433_last_message{id="104", """
+            + """model="LaCrosse-TX31UIT"} 1677374905.538138""",
+            prom,
+        )
