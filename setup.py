@@ -22,13 +22,17 @@ try:
 except ImportError:
     import re
 
-    with open('prom433.egg-info/PKG-INFO') as f:
+    with open("prom433.egg-info/PKG-INFO") as f:
         __version__ = re.search("^Version: (.*)$", f.read(), re.MULTILINE).group(1)
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-with open('requirements.txt' if os.path.exists('requirements.txt') else 'prom433.egg-info/requires.txt') as f:
+with open(
+    "requirements.txt"
+    if os.path.exists("requirements.txt")
+    else "prom433.egg-info/requires.txt"
+) as f:
     requirements = f.read().splitlines()
 
 setuptools.setup(
@@ -51,6 +55,6 @@ setuptools.setup(
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.10',
+    python_requires=">=3.10",
     install_requires=requirements,
 )
