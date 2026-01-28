@@ -18,7 +18,7 @@ from datetime import datetime
 import http.server
 import traceback
 
-from sentry_sdk import capture_exception  # type:ignore
+from sentry_sdk import capture_exception  # type: ignore
 
 from .prometheus import get_metrics
 
@@ -58,18 +58,14 @@ class Handler(http.server.BaseHTTPRequestHandler):
     def send_index(self):
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(
-            """
+        self.wfile.write("""
 <html>
 <head><title>RTL433 Prometheus</title></head>
 <body>
 <h1>RTL433 Prometheus</h1>
 <p><a href="/metrics">Metrics</a></p>
 </body>
-</html>""".encode(
-                "utf8"
-            )
-        )
+</html>""".encode("utf8"))
 
     def send_metrics(self):
         self.send_response(200)
