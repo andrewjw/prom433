@@ -1,5 +1,5 @@
 black==26.1.0
-coverage==7.13.2
+coverage==7.13.3
 python-semantic-release==10.5.3
 paho-mqtt==2.1.0
 python-dateutil==2.9.0.post0
