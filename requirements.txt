@@ -4,6 +4,6 @@ python-semantic-release==10.6.2
 paho-mqtt==2.1.0
 python-dateutil==2.9.0.post0
 wheel==0.48.0
-twine==6.2.0
+twine==7.0.0
 setuptools==82.0.1
 sentry-sdk==2.68.1
