@@ -20,7 +20,7 @@
         "python"
       ],
       "matchUpdateTypes": ["minor"],
-      "enabled": false
+      "automerge": false
     }
   ]
 }
