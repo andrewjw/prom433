@@ -1,7 +1,7 @@
 black==26.10.1
 coverage==7.16.2
 python-semantic-release==10.7.0
-paho-mqtt==2.1.0
+paho-mqtt==2.2.0
 python-dateutil==2.9.0.post0
 wheel==0.48.0
 twine==6.2.0
