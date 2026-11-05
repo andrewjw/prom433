@@ -2,6 +2,38 @@
 
 <!-- version list -->
 
+## v4.0.0 (2026-11-05)
+
+### Chores
+
+- Don't automerge Python version changes.
+  ([`57f900f`](https://github.com/andrewjw/prom433/commit/57f900f5f268ae0aa5a417ab54b0938a9a8d867a))
+
+- Don't automerge Python version changes.
+  ([`7020211`](https://github.com/andrewjw/prom433/commit/70202110abd50716f26e513f57d50e82a8f051b2))
+
+- Fix renovate config.
+  ([`eb9698c`](https://github.com/andrewjw/prom433/commit/eb9698c6f33c2d11300b423126b11eb61a55f2f4))
+
+- Fix updating of changelog in the repo.
+  ([`b6260f7`](https://github.com/andrewjw/prom433/commit/b6260f70fa7a414c1c7cdcbe49461e0f3cd637e8))
+
+- Revent Python upgrade until we can test it.
+  ([`63dc795`](https://github.com/andrewjw/prom433/commit/63dc795debcdac839346c5173444e206d5d8831a))
+
+- Update formatting to black 26.
+  ([`096592c`](https://github.com/andrewjw/prom433/commit/096592c43f16a1ffcc0434b578cb4eef5e517af2))
+
+### Features
+
+- Add support for Python 3.15 and drop 3.10
+  ([`e4010dc`](https://github.com/andrewjw/prom433/commit/e4010dcbd1bd1a567a03fce1697273a9dc3ba870))
+
+### Breaking Changes
+
+- Drop support for Python 3.10.
+
+
 ## v3.1.1 (2026-01-16)
 
 ### Bug Fixes
