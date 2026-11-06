@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v4.1.1 (2026-11-06)
+
+### Bug Fixes
+
+- Add test and fix config for is_raining metric.
+  ([`2b1a523`](https://github.com/andrewjw/prom433/commit/2b1a5235ead4aa652208c7d3992201666c028942))
+
+
 ## v4.1.0 (2026-11-06)
 
 ### Features
