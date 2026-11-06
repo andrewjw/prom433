@@ -58,6 +58,10 @@ class TestPrometheus(unittest.TestCase):
             prom,
         )
         self.assertIn(
+            """prom433_is_raining{id="18326", model="Fineoffset-WS90"} 1""",
+            prom,
+        )
+        self.assertIn(
             """prom433_noise{channel="6", id="3672", """
             + """model="Eurochron-EFTH800"} -20.3544""",
             prom,

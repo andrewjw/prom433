@@ -143,6 +143,7 @@ METRIC_NAME = {
     "wind_avg_m_s": "prom433_wind_avg_m",
     "wind_max_m_s": "prom433_wind_max_m",
     "rain_mm": "prom433_rain",
+    "rain_start": "prom433_is_raining",
     "uv": "prom433_uv",
     "uvi": "prom433_uvi",
     "light_lux": "prom433_light_lux",
