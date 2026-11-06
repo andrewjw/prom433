@@ -52,6 +52,9 @@ LUX_TYPE = "gauge"
 RAIN_HELP = "The total rainfall in mm."
 RAIN_TYPE = "counter"
 
+RAINING_HELP = "Is it currently raining?"
+RAINING_TYPE = "gauge"
+
 BATTERY_HELP = "The battery status."
 BATTERY_TYPE = "gauge"
 
@@ -94,6 +97,7 @@ METRICS_PREFIXES = {
     "prom433_wind_avg_m": [WIND_AVG_HELP_M, WIND_AVG_TYPE],
     "prom433_wind_max_m": [WIND_MAX_HELP_M, WIND_MAX_TYPE],
     "prom433_rain": [RAIN_HELP, RAIN_TYPE],
+    "prom433_is_raining": [RAINING_HELP, RAINING_TYPE],
     "prom433_uv": [UV_HELP, UV_TYPE],
     "prom433_uvi": [UVI_HELP, UVI_TYPE],
     "prom433_light_lux": [LUX_HELP, LUX_TYPE],
