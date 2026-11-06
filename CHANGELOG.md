@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v4.1.0 (2026-11-06)
+
+### Features
+
+- Report the is_raining metric for Fineoffset WS90 weather stations.
+  ([`87e0ec9`](https://github.com/andrewjw/prom433/commit/87e0ec91ed47dd592c505b2e697aaa17db50f74f))
+
+
 ## v4.0.0 (2026-11-05)
 
 ### Chores
