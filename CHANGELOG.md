@@ -2,6 +2,14 @@
 
 <!-- version list -->
 
+## v4.1.2 (2026-11-27)
+
+### Bug Fixes
+
+- Send correct content type for metrics.
+  ([`41aef26`](https://github.com/andrewjw/prom433/commit/41aef26dcd48ee1438d7332105773aa5e3aef8b4))
+
+
 ## v4.1.1 (2026-11-06)
 
 ### Bug Fixes
